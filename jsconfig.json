@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src"
+  },
+  "include": ["src"]
+}
+
+// 리액트 절대 경로 설정
