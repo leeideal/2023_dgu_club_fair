@@ -3,7 +3,7 @@ import { theme } from "./theme";
 import Router from "./Router";
 
 const GlobalStyle = createGlobalStyle`
- html, body, div, span, applet, object, iframe,
+html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -34,6 +34,12 @@ footer, header, hgroup, main, menu, nav, section {
 }
 body {
   line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
 }
 menu, ol, ul {
   list-style: none;
