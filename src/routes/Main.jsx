@@ -6,7 +6,15 @@ const Main = () => {
   const navigate = useNavigate();
   return (
     <>
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          border: '1px solid black',
+          height: '100vh',
+        }}
+      >
         <p>3D modeling test 후 반영 예정(임시)</p>
         <br />
         <Button variant="contained" onClick={() => navigate('/about')}>
