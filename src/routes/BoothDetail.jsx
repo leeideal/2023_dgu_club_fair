@@ -16,7 +16,7 @@ const BoothDetail = ({ onCategoryChange }) => {
       id: 1,
       main_image:'https://velog.velcdn.com/images/seochan99/post/0dcffe62-7b09-4659-b272-157400e3c81a/image.png',
       title: '멋쟁이사자처럼',
-      logo:'',
+      logo:'https://velog.velcdn.com/images/seochan99/post/3dc61517-baf1-4636-b514-f24910076286/image.jpeg',
       hashtag: '#코딩 #창업',
       roomLocation:"학생회관 2층 작은 문",
       boothLocation :"목 20번, 금 10번",
