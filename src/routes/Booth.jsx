@@ -1,50 +1,15 @@
-import React from 'react';
-import { Box, Button, Container, Grid, Typography } from '@mui/material/';
-import styled from 'styled-components';
+import React, { useState } from 'react';
+import { Container, Grid, Typography } from '@mui/material/';
 import MainButton from '../components/Main/MainButton';
 import { useNavigate } from 'react-router-dom';
 import ClubListComponent from '../components/Booth/ClubListComponent';
-
-const DateSection = styled.section`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 70px;
-  height: 70px;
-  cursor: pointer;
-  transition: 0.2s;
-  &:hover {
-    color: #ffa800;
-    background-color: #fff2d9;
-    border-radius: 50%;
-  }
-`;
-
-const SelectSection = styled.section`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
-  height: 50px;
-  border: 3px solid #ffd98e;
-  border-radius: 50px;
-`;
-
-const SelectButton = styled.button`
-  width: 49%;
-  height: 90%;
-  background-color: transparent;
-  border: none;
-  font-size: 16px;
-  color: #603900;
-  cursor: pointer;
-  font-family: 'insungitCutelivelyjisu';
-  transition: 0.2s;
-  &:hover {
-    background-color: #ffd98e;
-    border-radius: 50px;
-  }
-`;
+import BoothMap from '../assets/images/boothMap.png';
+import {
+  DateSection,
+  ImageSection,
+  SelectButton,
+  SelectSection,
+} from '../components/Booth/BoothStyled';
 
 const clubData = [
   {
@@ -117,6 +82,8 @@ const clubList = [
 
 const Booth = () => {
   const navigate = useNavigate();
+  const [date, setDate] = useState(true);
+  const [toggle, setToggle] = useState(true);
   return (
     <>
       <Container component="main">
@@ -191,18 +158,36 @@ const Booth = () => {
             }}
           >
             <SelectSection>
-              <SelectButton>동아리 부스</SelectButton>
-              <SelectButton>공연 타임테이블</SelectButton>
+              <SelectButton onClick={() => setToggle(!toggle)}>
+                동아리 부스
+              </SelectButton>
+              <SelectButton onClick={() => setToggle(!toggle)}>
+                공연 타임테이블
+              </SelectButton>
             </SelectSection>
           </Grid>
-          <Grid item xs={12} md={6.5} sx={{ border: '1px solid black' }}>
-            지도 이미지
+          <Grid item xs={12} md={7}>
+            {toggle ? <ImageSection src={BoothMap} /> : 'table'}
           </Grid>
           <Grid
             item
             xs={12}
-            md={5.5}
-            sx={{ border: '1px solid black', minHeight: '60vh' }}
+            md={5}
+            sx={{
+              height: '60vh',
+              overflowY: 'auto',
+              scrollbarColor: 'red',
+              '&:-webkitScrollbar': {
+                width: '8px',
+                height: '8px',
+                borderRadius: '6px',
+                background: 'rgba(255, 255, 255, 0.4)',
+              },
+              '&:-webkitScrollbarThumb': {
+                background: 'rgba(0, 0, 0, 0.3)',
+                borderRadius: '6px',
+              },
+            }}
           >
             <Grid
               item
@@ -234,10 +219,7 @@ const Booth = () => {
             </Grid>
             <br />
             <br />
-            <Grid
-              item
-              sx={{ position: 'relative', height: '100%', overflowY: 'auto' }}
-            >
+            <Grid item sx={{ position: 'relative', height: '100%' }}>
               {[...clubList]}
             </Grid>
           </Grid>
