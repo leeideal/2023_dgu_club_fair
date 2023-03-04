@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, Button } from '@mui/material';
+import MainButton from '../components/Main/MainButton';
 
 const Main = () => {
   const navigate = useNavigate();
@@ -9,25 +10,24 @@ const Main = () => {
       <Box
         sx={{
           display: 'flex',
-          flexDirection: 'column',
           justifyContent: 'center',
+          alignItems: 'center',
           border: '1px solid black',
           height: '100vh',
         }}
       >
-        <p>3D modeling test 후 반영 예정(임시)</p>
-        <br />
-        <Button variant="contained" onClick={() => navigate('/about')}>
-          ABOUT
-        </Button>
-        <br />
-        <Button variant="contained" onClick={() => navigate('/booth')}>
-          Booth
-        </Button>
-        <br />
-        <Button variant="contained" onClick={() => navigate('/introduction')}>
-          Introduction
-        </Button>
+        <MainButton
+          buttonName="동아리 소개"
+          onClick={() => navigate('/introduction')}
+        ></MainButton>
+        <MainButton
+          buttonName="동아리 부스"
+          onClick={() => navigate('/booth')}
+        ></MainButton>
+        <MainButton
+          buttonName="ABOUT"
+          onClick={() => navigate('/about')}
+        ></MainButton>
       </Box>
     </>
   );
