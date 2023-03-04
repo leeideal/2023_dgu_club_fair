@@ -1,6 +1,6 @@
-import { ThemeProvider, createGlobalStyle } from "styled-components";
-import { theme } from "./theme";
-import Router from "./Router";
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { theme } from './theme';
+import Router from './Router';
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -32,14 +32,14 @@ footer, header, hgroup, main, menu, nav, section {
 *[hidden] {
     display: none;
 }
+@font-face {
+  font-family: 'insungitCutelivelyjisu';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/insungitCutelivelyjisu.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
 body {
-  line-height: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  overflow-y: scroll;
+  line-height: 1;  
 }
 menu, ol, ul {
   list-style: none;
@@ -59,6 +59,8 @@ table {
 // 추가1. 모든 태그에 border-box 적용 (테두리와 안쪽 여백의 크기도 요소의 크기로 고려)
 * {
     box-sizing: border-box;
+    font-family: 'insungitCutelivelyjisu';
+
 }
 // 추가2. 가져온 폰트를 body태그 안에 있으면 다 적용되게 해줌 + theme 적용
 body{
