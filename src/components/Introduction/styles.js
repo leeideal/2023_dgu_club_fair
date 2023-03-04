@@ -1,12 +1,14 @@
 import { width } from '@mui/system';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import './style.css';
 
 export const CategoryWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 0px 10px;
+  margin: 20px 10px;
 `;
 
 export const CategoryBtn = styled.button`
@@ -30,11 +32,16 @@ export const CategoryBtn = styled.button`
 
 // 카드 컴포넌트
 export const BoothCardContainer = styled.div`
-  margin: 50px 400px;
+  margin: 0px 400px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px;
+  justify-content: center;
+
   @media (max-width: 1200px) {
     text-align: center;
     margin: 20px auto;
-    margin-left: 50px;
+    margin: 0px 50px;
   }
 `;
 
@@ -45,16 +52,18 @@ const Container = styled.button`
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
   display: flex;
   flex-direction: column;
+
   justify-content: space-between;
-  width: calc(25% - 20px);
+  width: calc(25% - 30px);
   margin-right: 20px;
   margin-bottom: 15px;
   cursor: pointer;
   transition: background-color 0.2s ease;
   &:last-child {
-    margin-right: 0;
+    margin-right: 0px;
   }
 
   @media (max-width: 1200px) {
@@ -66,47 +75,44 @@ const Container = styled.button`
 `;
 
 const Title = styled.h2`
-  font-size: 15px;
+  font-size: 14px;
   margin-top: 0;
   margin-bottom: 10px;
+  color: #513102;
 `;
 
 const Text = styled.p`
-  font-size: 12px;
+  font-size: 10px;
   line-height: 1.5;
   margin-top: 0;
   margin-bottom: 20px;
-`;
-
-const Button = styled.button`
-  font-size: 5px;
-  font-weight: 600;
-  text-transform: uppercase;
-  background-color: #212529;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 8px 16px;
-
-  &:hover {
-    background-color: #343a40;
-  }
+  color: #ccbbaa;
 `;
 
 const Image = styled.img`
-  float: right;
   text-align: right;
   border-radius: 50%;
-  width: 50%;
+  width: 40%;
 `;
 
-const Card = ({ title, text, boothImage, buttonText, onClick }) => {
+const ImageWrap = styled.div`
+  text-align: right;
+`;
+const Card = ({ title, text, boothId, boothImage, onClick }) => {
+  const navigate = useNavigate();
+  function handleClick() {
+    navigate(`/booth/${title}`);
+  }
+
   return (
-    <Container>
-      <Title onClick={onClick}>{title}</Title>
+    <Container onClick={handleClick} className="fadeIn">
+      <Title>{title}</Title>
       <Text>{text}</Text>
+
       <Image>{boothImage}</Image>
-      <Image src="https://velog.velcdn.com/images/seochan99/post/ced80216-dbfa-4084-9543-1c73c85bb289/image.png"></Image>
+      <ImageWrap>
+        <Image src="https://velog.velcdn.com/images/seochan99/post/ced80216-dbfa-4084-9543-1c73c85bb289/image.png"></Image>
+      </ImageWrap>
     </Container>
   );
 };
