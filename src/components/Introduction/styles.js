@@ -1,5 +1,6 @@
 import { width } from '@mui/system';
 import styled from 'styled-components';
+import './style.css';
 
 export const CategoryWrap = styled.div`
   display: flex;
@@ -56,7 +57,7 @@ const Container = styled.button`
   &:last-child {
     margin-right: 0;
   }
-
+  transition: '0.5s all';
   @media (max-width: 1200px) {
     width: 40%;
     margin-right: 10px;
@@ -78,21 +79,6 @@ const Text = styled.p`
   margin-bottom: 20px;
 `;
 
-const Button = styled.button`
-  font-size: 5px;
-  font-weight: 600;
-  text-transform: uppercase;
-  background-color: #212529;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 8px 16px;
-
-  &:hover {
-    background-color: #343a40;
-  }
-`;
-
 const Image = styled.img`
   float: right;
   text-align: right;
@@ -100,9 +86,10 @@ const Image = styled.img`
   width: 50%;
 `;
 
-const Card = ({ title, text, boothImage, buttonText, onClick }) => {
+const Card = ({ title, text, boothImage, onClick }) => {
+  console.log({ boothImage });
   return (
-    <Container>
+    <Container className="fadeIn">
       <Title onClick={onClick}>{title}</Title>
       <Text>{text}</Text>
       <Image>{boothImage}</Image>

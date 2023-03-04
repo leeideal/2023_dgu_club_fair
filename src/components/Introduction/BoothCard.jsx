@@ -12,57 +12,19 @@ const BoothCard = ({
 
 }) => {
   const handleButtonClick = () => {
-    console.log("Button clicked!");
   };
 
   return (
 
     <div style={{ display: "flex", flexWrap: "wrap" }}>
-                <Card
+    <Card
       title={title}
       text={intro}
       image={boothImage}
-      buttonText="Click me!"
       onClick={handleButtonClick}
     />
 
     <Card
-      title={title}
-      text={intro}
-      buttonText="Click me!"
-      onClick={handleButtonClick}
-    />
-            <Card
-      title={title}
-      text={intro}
-      buttonText="Click me!"
-      onClick={handleButtonClick}
-    />
-            <Card
-      title={title}
-      text={intro}
-      buttonText="Click me!"
-      onClick={handleButtonClick}
-    />
-            <Card
-      title={title}
-      text={intro}
-      buttonText="Click me!"
-      onClick={handleButtonClick}
-    />
-            <Card
-      title={title}
-      text={intro}
-      buttonText="Click me!"
-      onClick={handleButtonClick}
-    />
-                <Card
-      title={title}
-      text={intro}
-      buttonText="Click me!"
-      onClick={handleButtonClick}
-    />
-                <Card
       title={title}
       text={intro}
       buttonText="Click me!"

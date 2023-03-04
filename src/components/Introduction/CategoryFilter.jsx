@@ -6,6 +6,7 @@ import { BoothCardContainer } from "./styles";
 const CategoryFilter = ({ onCategoryChange }) => {
   const [selectedCategory, setSelectedCategory] = useState("전체");
 
+  // 카테고리 
   const categories = [
     "전체",
     "IT",
@@ -18,6 +19,7 @@ const CategoryFilter = ({ onCategoryChange }) => {
     "친목",
   ];
 
+  // 카드데이터
   const [cardsData, setCardsData] = useState([
     {
       id: 1,
@@ -27,7 +29,7 @@ const CategoryFilter = ({ onCategoryChange }) => {
       likeCnt: 100,
       images: [
         {
-          id: 1,
+      id: 1,
           originFileName: '멋사.jpg',
           serverFileName: '6fb151081add763ec08da678a9578eff',
           storedFilePath: 'https://han.gl/pYMEv',
@@ -35,8 +37,25 @@ const CategoryFilter = ({ onCategoryChange }) => {
       ],
       category:"IT"
     },
+    {
+      id: 2,
+      title: 'AJAX',
+      introduction: '#힙합 #공연',
+      type:1,
+      likeCnt: 100,
+      images: [
+        {
+      id: 1,
+          originFileName: '멋사.jpg',
+          serverFileName: '6fb151081add763ec08da678a9578eff',
+          storedFilePath: 'https://han.gl/pYMEv',
+        },
+      ],
+      category:"문화·예술·공연"
+    },
   ]);
 
+  // 카드보이게
   const visibleCards = selectedCategory === '전체'
     ? cardsData
     : cardsData.filter(card => card.category === selectedCategory);
@@ -73,10 +92,9 @@ const handleClick = (category) => {
           key = {boo.id}
           boothId = {boo.id}
           title = {boo.title}
+          boothImage = {boo.images[0]}
           intro = {boo.introduction}
           likeCnt = {boo.likeCnt}
-          boothImage = {boo.images[0]}
-          type={boo.type}
         />
       )
     })}
