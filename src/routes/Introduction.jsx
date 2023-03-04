@@ -9,6 +9,7 @@ const Introduction = () => {
       id: 1,
       title: '멋쟁이사자처럼',
       introduction: '#코딩 #창업',
+      type:1,
       likeCnt: 100,
       images: [
         {
@@ -35,6 +36,7 @@ const Introduction = () => {
           intro = {boo.introduction}
           likeCnt = {boo.likeCnt}
           boothImage = {boo.images[0]}
+          type={boo.type}
         />
       )
     })}
