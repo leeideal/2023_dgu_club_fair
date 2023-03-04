@@ -31,7 +31,7 @@ export const CategoryBtn = styled.button`
 // 카드 컴포넌트
 export const BoothCardContainer = styled.div`
   margin: 50px 400px;
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
     text-align: center;
     margin: 20px auto;
     margin-left: 50px;
@@ -57,7 +57,7 @@ const Container = styled.button`
     margin-right: 0;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
     width: 40%;
     margin-right: 10px;
     margin-bottom: 20px;
