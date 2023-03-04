@@ -1,7 +1,11 @@
 import React from 'react';
+import CategoryFilter from '../components/Introduction/CategoryFilter'
 
 const Introduction = () => {
-  return <>동아리 소개</>;
+  return <>
+  <CategoryFilter/>
+  ㅋㅋ
+  </>;
 };
 
 export default Introduction;

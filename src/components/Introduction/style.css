@@ -1,0 +1,14 @@
+.category-filter__button.active {
+  color: #603900;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 767px) {
+  .category-filter__button {
+    margin-right: 10px;
+  }
+
+  .category-filter__button:nth-child(4n) {
+    margin-right: 10px;
+  }
+}
