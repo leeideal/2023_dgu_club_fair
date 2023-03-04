@@ -11,11 +11,12 @@ const DateSection = styled.section`
   align-items: center;
   width: 70px;
   height: 70px;
+  cursor: pointer;
+  transition: 0.2s;
   &:hover {
     color: #ffa800;
     background-color: #fff2d9;
     border-radius: 50%;
-    cursor: pointer;
   }
 `;
 
@@ -38,6 +39,7 @@ const SelectButton = styled.button`
   color: #603900;
   cursor: pointer;
   font-family: 'insungitCutelivelyjisu';
+  transition: 0.2s;
   &:hover {
     background-color: #ffd98e;
     border-radius: 50px;
@@ -56,6 +58,54 @@ const clubData = [
   {
     id: 3,
     name: '아리랑',
+  },
+  {
+    id: 4,
+    name: '페인터즈',
+  },
+  {
+    id: 5,
+    name: 'E.L.F',
+  },
+  {
+    id: 6,
+    name: '음샘',
+  },
+  {
+    id: 7,
+    name: '디콕',
+  },
+  {
+    id: 8,
+    name: '명궁',
+  },
+  {
+    id: 9,
+    name: '동굴탐험연구회',
+  },
+  {
+    id: 10,
+    name: '수중탐험연구회',
+  },
+  {
+    id: 11,
+    name: 'LAE',
+  },
+  {
+    id: 12,
+    name: '목멱성',
+  },
+  {
+    id: 13,
+    name: '한글학교 하람',
+  },
+  {
+    id: 14,
+    name: 'FC 엘레펜테',
+  },
+  {
+    id: 15,
+    name: '만화얼',
   },
 ];
 
@@ -154,7 +204,13 @@ const Booth = () => {
             md={5.5}
             sx={{ border: '1px solid black', minHeight: '60vh' }}
           >
-            <Grid item sx={{ display: 'flex', position: 'relative' }}>
+            <Grid
+              item
+              sx={{
+                display: 'flex',
+                position: 'relative',
+              }}
+            >
               <Typography
                 sx={{
                   position: 'absolute',
@@ -178,7 +234,10 @@ const Booth = () => {
             </Grid>
             <br />
             <br />
-            <Grid item sx={{ position: 'relative' }}>
+            <Grid
+              item
+              sx={{ position: 'relative', height: '100%', overflowY: 'auto' }}
+            >
               {[...clubList]}
             </Grid>
           </Grid>
