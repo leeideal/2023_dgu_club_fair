@@ -39,7 +39,7 @@ body {
   align-items: center;
   width: 100%;
   height: 100vh;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 menu, ol, ul {
   list-style: none;

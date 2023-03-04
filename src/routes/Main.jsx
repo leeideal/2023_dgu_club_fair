@@ -6,7 +6,7 @@ const Main = () => {
   const navigate = useNavigate();
   return (
     <>
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', overflowY: 'hidden' }}>
         <p>3D modeling test 후 반영 예정(임시)</p>
         <br />
         <Button variant="contained" onClick={() => navigate('/about')}>
