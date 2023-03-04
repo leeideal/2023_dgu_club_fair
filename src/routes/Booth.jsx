@@ -1,8 +1,20 @@
 import React from 'react';
-import { Button, Container, Grid, Typography } from '@mui/material/';
+import { Box, Button, Container, Grid, Typography } from '@mui/material/';
 import styled from 'styled-components';
 import MainButton from '../components/Main/MainButton';
 import { useNavigate } from 'react-router-dom';
+
+const DateSection = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  &:hover {
+    background-color: #fff2d9;
+    border-radius: 50%;
+  }
+`;
 
 const Booth = () => {
   const navigate = useNavigate();
@@ -13,10 +25,12 @@ const Booth = () => {
           <Grid
             item
             xs={12}
+            gap={7}
             sx={{
-              border: '1px solid black',
               display: 'flex',
               justifyContent: 'center',
+              alignItems: 'center',
+              minHeight: '10vh',
             }}
           >
             <MainButton
@@ -33,8 +47,47 @@ const Booth = () => {
               onClick={() => navigate('/about')}
             ></MainButton>
           </Grid>
-          <Grid item xs={12} sx={{}}>
-            2
+          <Grid
+            item
+            xs={12}
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              minHeight: '10vh',
+            }}
+          >
+            <DateSection>
+              <Typography
+                sx={{
+                  fontFamily: 'insungitCutelivelyjisu',
+                  textAlign: 'center',
+                  cursor: 'pointer',
+                  '&:hover': {
+                    color: '#FFA800',
+                  },
+                }}
+              >
+                Thu
+                <br />9
+              </Typography>
+            </DateSection>
+            <DateSection>
+              <Typography
+                sx={{
+                  fontFamily: 'insungitCutelivelyjisu',
+                  textAlign: 'center',
+                  cursor: 'pointer',
+                  '&:hover': {
+                    color: '#FFA800',
+                  },
+                }}
+              >
+                Fri
+                <br />
+                10
+              </Typography>
+            </DateSection>
           </Grid>
           <Grid item xs={12} sx={{}}>
             3
