@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const ListSection = styled.section`
@@ -36,6 +37,8 @@ const NameSection = styled.span`
 `;
 
 const ClubListComponent = ({ id, name }) => {
+  const navigate = useNavigate();
+  const mapCurrent = (mapSection) => {};
   return (
     <>
       {/* <Link to={`/clublist/${id}`} state={{ id, name }}> */}
