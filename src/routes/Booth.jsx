@@ -11,8 +11,35 @@ const DateSection = styled.section`
   width: 70px;
   height: 70px;
   &:hover {
+    color: #ffa800;
     background-color: #fff2d9;
     border-radius: 50%;
+    cursor: pointer;
+  }
+`;
+
+const SelectSection = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 50px;
+  border: 3px solid #ffd98e;
+  border-radius: 50px;
+`;
+
+const SelectButton = styled.button`
+  width: 49%;
+  height: 90%;
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  color: #603900;
+  cursor: pointer;
+  font-family: 'insungitCutelivelyjisu';
+  &:hover {
+    background-color: #ffd98e;
+    border-radius: 50px;
   }
 `;
 
@@ -62,10 +89,6 @@ const Booth = () => {
                 sx={{
                   fontFamily: 'insungitCutelivelyjisu',
                   textAlign: 'center',
-                  cursor: 'pointer',
-                  '&:hover': {
-                    color: '#FFA800',
-                  },
                 }}
               >
                 Thu
@@ -77,10 +100,6 @@ const Booth = () => {
                 sx={{
                   fontFamily: 'insungitCutelivelyjisu',
                   textAlign: 'center',
-                  cursor: 'pointer',
-                  '&:hover': {
-                    color: '#FFA800',
-                  },
                 }}
               >
                 Fri
@@ -89,14 +108,26 @@ const Booth = () => {
               </Typography>
             </DateSection>
           </Grid>
-          <Grid item xs={12} sx={{}}>
-            3
+          <Grid
+            item
+            xs={12}
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              minHeight: '10vh',
+            }}
+          >
+            <SelectSection>
+              <SelectButton>동아리 부스</SelectButton>
+              <SelectButton>공연 타임테이블</SelectButton>
+            </SelectSection>
           </Grid>
           <Grid item xs={12} md={7} sx={{}}>
-            4
+            지도 이미지
           </Grid>
           <Grid item xs={12} md={5} sx={{}}>
-            5
+            동아리 리스트
           </Grid>
         </Grid>
       </Container>
