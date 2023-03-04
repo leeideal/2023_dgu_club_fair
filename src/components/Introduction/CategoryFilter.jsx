@@ -64,8 +64,6 @@ const CategoryFilter = ({ onCategoryChange }) => {
   
 const handleClick = (category) => {
     if (selectedCategory === category) {
-      setSelectedCategory(null);
-      onCategoryChange(null);
     } else {
       setSelectedCategory(category);
       onCategoryChange(category);

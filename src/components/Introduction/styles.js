@@ -1,4 +1,5 @@
 import { width } from '@mui/system';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import './style.css';
 
@@ -7,7 +8,7 @@ export const CategoryWrap = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 0px 10px;
+  margin: 20px 10px;
 `;
 
 export const CategoryBtn = styled.button`
@@ -67,16 +68,18 @@ const Container = styled.button`
 `;
 
 const Title = styled.h2`
-  font-size: 15px;
+  font-size: 14px;
   margin-top: 0;
   margin-bottom: 10px;
+  color: #513102;
 `;
 
 const Text = styled.p`
-  font-size: 12px;
+  font-size: 10px;
   line-height: 1.5;
   margin-top: 0;
   margin-bottom: 20px;
+  color: #ccbbaa;
 `;
 
 const Image = styled.img`
@@ -86,12 +89,17 @@ const Image = styled.img`
   width: 50%;
 `;
 
-const Card = ({ title, text, boothImage, onClick }) => {
-  console.log({ boothImage });
+const Card = ({ title, text, boothId, boothImage, onClick }) => {
+  const navigate = useNavigate();
+  function handleClick() {
+    navigate(`/booth/${title}`);
+  }
+
   return (
-    <Container className="fadeIn">
-      <Title onClick={onClick}>{title}</Title>
+    <Container onClick={handleClick} className="fadeIn">
+      <Title>{title}</Title>
       <Text>{text}</Text>
+
       <Image>{boothImage}</Image>
       <Image src="https://velog.velcdn.com/images/seochan99/post/ced80216-dbfa-4084-9543-1c73c85bb289/image.png"></Image>
     </Container>
