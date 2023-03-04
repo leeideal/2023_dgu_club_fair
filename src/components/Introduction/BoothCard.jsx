@@ -16,21 +16,15 @@ const BoothCard = ({
 
   return (
 
-    <div style={{ display: "flex", flexWrap: "wrap" }}>
+    <>
     <Card
       title={title}
       text={intro}
       image={boothImage}
       onClick={handleButtonClick}
     />
+    </>
 
-    <Card
-      title={title}
-      text={intro}
-      buttonText="Click me!"
-      onClick={handleButtonClick}
-    />
-    </div>
 
     
   );

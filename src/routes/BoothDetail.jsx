@@ -4,7 +4,7 @@ import MainButton from '../components/Main/MainButton';
 
 const BoothDetail = () => {
   return (<>
-  BoothDetail
+    BoothDetail
   </>
   );
 };

@@ -32,11 +32,15 @@ export const CategoryBtn = styled.button`
 
 // 카드 컴포넌트
 export const BoothCardContainer = styled.div`
-  margin: 50px 400px;
+  margin: 0px 400px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px;
+  justify-content: center;
   @media (max-width: 1200px) {
     text-align: center;
     margin: 20px auto;
-    margin-left: 50px;
+    margin: 0px 50px;
   }
 `;
 
@@ -47,8 +51,10 @@ const Container = styled.button`
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
   display: flex;
   flex-direction: column;
+
   justify-content: space-between;
   width: calc(25% - 20px);
   margin-right: 20px;
@@ -56,9 +62,9 @@ const Container = styled.button`
   cursor: pointer;
   transition: background-color 0.2s ease;
   &:last-child {
-    margin-right: 0;
+    margin-right: 0px;
   }
-  transition: '0.5s all';
+
   @media (max-width: 1200px) {
     width: 40%;
     margin-right: 10px;

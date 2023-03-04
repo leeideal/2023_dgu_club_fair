@@ -25,6 +25,20 @@ const CategoryFilter = ({ onCategoryChange }) => {
       id: 1,
       title: '멋쟁이사자처럼',
       introduction: '#코딩 #창업',
+      images: [
+        {
+      id: 1,
+          originFileName: '멋사.jpg',
+          serverFileName: '6fb151081add763ec08da678a9578eff',
+          storedFilePath: 'https://han.gl/pYMEv',
+        },
+      ],
+      category:"IT"
+    },
+    {
+      id: 2,
+      title: 'AJAX',
+      introduction: '#힙합 #공연',
       type:1,
       likeCnt: 100,
       images: [
@@ -35,7 +49,39 @@ const CategoryFilter = ({ onCategoryChange }) => {
           storedFilePath: 'https://han.gl/pYMEv',
         },
       ],
-      category:"IT"
+      category:"문화·예술·공연"
+    },
+    {
+      id: 2,
+      title: 'AJAX',
+      introduction: '#힙합 #공연',
+      type:1,
+      likeCnt: 100,
+      images: [
+        {
+      id: 1,
+          originFileName: '멋사.jpg',
+          serverFileName: '6fb151081add763ec08da678a9578eff',
+          storedFilePath: 'https://han.gl/pYMEv',
+        },
+      ],
+      category:"문화·예술·공연"
+    },
+    {
+      id: 2,
+      title: 'AJAX',
+      introduction: '#힙합 #공연',
+      type:1,
+      likeCnt: 100,
+      images: [
+        {
+      id: 1,
+          originFileName: '멋사.jpg',
+          serverFileName: '6fb151081add763ec08da678a9578eff',
+          storedFilePath: 'https://han.gl/pYMEv',
+        },
+      ],
+      category:"문화·예술·공연"
     },
     {
       id: 2,
