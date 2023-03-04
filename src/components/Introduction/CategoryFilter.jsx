@@ -52,7 +52,7 @@ const CategoryFilter = ({ onCategoryChange }) => {
       category:"문화·예술·공연"
     },
     {
-      id: 2,
+      id: 3,
       title: 'AJAX',
       introduction: '#힙합 #공연',
       type:1,
@@ -68,7 +68,7 @@ const CategoryFilter = ({ onCategoryChange }) => {
       category:"문화·예술·공연"
     },
     {
-      id: 2,
+      id: 4,
       title: 'AJAX',
       introduction: '#힙합 #공연',
       type:1,
@@ -84,7 +84,7 @@ const CategoryFilter = ({ onCategoryChange }) => {
       category:"문화·예술·공연"
     },
     {
-      id: 2,
+      id:5,
       title: 'AJAX',
       introduction: '#힙합 #공연',
       type:1,
@@ -110,6 +110,8 @@ const CategoryFilter = ({ onCategoryChange }) => {
   
 const handleClick = (category) => {
     if (selectedCategory === category) {
+      // setSelectedCategory(null);
+      // onCategoryChange(null);
     } else {
       setSelectedCategory(category);
       onCategoryChange(category);

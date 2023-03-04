@@ -37,6 +37,7 @@ export const BoothCardContainer = styled.div`
   flex-wrap: wrap;
   padding: 0px;
   justify-content: center;
+
   @media (max-width: 1200px) {
     text-align: center;
     margin: 20px auto;
@@ -56,7 +57,7 @@ const Container = styled.button`
   flex-direction: column;
 
   justify-content: space-between;
-  width: calc(25% - 20px);
+  width: calc(25% - 30px);
   margin-right: 20px;
   margin-bottom: 15px;
   cursor: pointer;
@@ -89,12 +90,14 @@ const Text = styled.p`
 `;
 
 const Image = styled.img`
-  float: right;
   text-align: right;
   border-radius: 50%;
-  width: 50%;
+  width: 40%;
 `;
 
+const ImageWrap = styled.div`
+  text-align: right;
+`;
 const Card = ({ title, text, boothId, boothImage, onClick }) => {
   const navigate = useNavigate();
   function handleClick() {
@@ -107,7 +110,9 @@ const Card = ({ title, text, boothId, boothImage, onClick }) => {
       <Text>{text}</Text>
 
       <Image>{boothImage}</Image>
-      <Image src="https://velog.velcdn.com/images/seochan99/post/ced80216-dbfa-4084-9543-1c73c85bb289/image.png"></Image>
+      <ImageWrap>
+        <Image src="https://velog.velcdn.com/images/seochan99/post/ced80216-dbfa-4084-9543-1c73c85bb289/image.png"></Image>
+      </ImageWrap>
     </Container>
   );
 };
