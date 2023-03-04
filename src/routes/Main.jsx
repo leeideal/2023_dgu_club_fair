@@ -1,13 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import MainButton from '../components/Main/MainButton';
+import { LogoButton } from '../components/Booth/BoothStyled';
+import Logo from '../assets/images/Logo.png';
 
 const Main = () => {
   const navigate = useNavigate();
   return (
     <>
       <Box
+        gap={7}
         sx={{
           display: 'flex',
           justifyContent: 'center',
@@ -16,6 +19,12 @@ const Main = () => {
           height: '100vh',
         }}
       >
+        <LogoButton
+          src={Logo}
+          onClick={() => {
+            navigate('/');
+          }}
+        />
         <MainButton
           buttonName="동아리 소개"
           onClick={() => navigate('/introduction')}

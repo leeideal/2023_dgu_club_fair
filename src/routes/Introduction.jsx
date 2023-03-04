@@ -5,6 +5,8 @@ import CategoryFilter from '../components/Introduction/CategoryFilter';
 import BoothCard from '../components/Introduction/BoothCard';
 import MainButton from '../components/Main/MainButton';
 import { Box } from '@mui/material';
+import Logo from '../assets/images/Logo.png';
+import { LogoButton } from '../components/Booth/BoothStyled';
 
 const Introduction = () => {
   const navigate = useNavigate();
@@ -20,6 +22,12 @@ const Introduction = () => {
           minHeight: '10vh',
         }}
       >
+        <LogoButton
+          src={Logo}
+          onClick={() => {
+            navigate('/');
+          }}
+        />
         <MainButton
           pageCurrent
           buttonName="동아리 소개"

@@ -2,6 +2,8 @@ import { Box } from '@mui/material';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import MainButton from '../components/Main/MainButton';
+import Logo from '../assets/images/Logo.png';
+import { LogoButton } from '../components/Booth/BoothStyled';
 
 const About = () => {
   const navigate = useNavigate();
@@ -16,6 +18,12 @@ const About = () => {
           minHeight: '10vh',
         }}
       >
+        <LogoButton
+          src={Logo}
+          onClick={() => {
+            navigate('/');
+          }}
+        />
         <MainButton
           buttonName="동아리 소개"
           onClick={() => navigate('/introduction')}

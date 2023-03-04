@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
-import ButtonHover from '../../assets/images/buttonHover.png';
+import NavHover from '../../assets/images/NavHover.png';
+import { theme } from '../../theme';
 
 const NavButton = styled.button`
   width: auto;
@@ -14,6 +15,10 @@ const NavButton = styled.button`
   background-size: contain;
   border: none;
   cursor: pointer;
+  &:hover {
+    border-bottom: 1px solid ${theme.pointColor};
+    border-radius: 10px;
+  }
 `;
 
 const HoverButton = styled.button`
@@ -23,7 +28,7 @@ const HoverButton = styled.button`
   font-size: 16px;
   font-weight: 500;
   background-color: transparent;
-  background-image: url(${ButtonHover});
+  background-image: url(${NavHover});
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
