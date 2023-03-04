@@ -1,6 +1,6 @@
-import { ThemeProvider, createGlobalStyle } from "styled-components";
-import { theme } from "./theme";
-import Router from "./Router";
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { theme } from './theme';
+import Router from './Router';
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
@@ -32,14 +32,14 @@ footer, header, hgroup, main, menu, nav, section {
 *[hidden] {
     display: none;
 }
+@font-face {
+  font-family: 'insungitCutelivelyjisu';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/insungitCutelivelyjisu.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
 body {
-  line-height: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  overflow-y: scroll;
+  line-height: 1;  
 }
 menu, ol, ul {
   list-style: none;
