@@ -14,6 +14,10 @@ const NavButton = styled.button`
   background-size: contain;
   border: none;
   cursor: pointer;
+  &:hover {
+    border-bottom: 1px solid #ffd98e;
+    border-radius: 10px;
+  }
 `;
 
 const HoverButton = styled.button`

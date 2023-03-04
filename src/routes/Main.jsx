@@ -8,10 +8,12 @@ const Main = () => {
   return (
     <>
       <Box
+        gap={7}
         sx={{
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+
           border: '1px solid black',
           height: '100vh',
         }}
