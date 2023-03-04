@@ -31,6 +31,24 @@ export const CategoryBtn = styled.button`
 `;
 
 // 카드 컴포넌트
+export const DetailContainer = styled.div`
+  margin: 0px 400px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px;
+  justify-content: center;
+
+  @media (max-width: 1200px) {
+    text-align: center;
+    margin: 20px auto;
+    margin: 0px 30px;
+  }
+`;
+
+export const DeatailWrap = styled.div`
+  margin: 0px 30px;
+`;
+// 카드 컴포넌트
 export const BoothCardContainer = styled.div`
   margin: 0px 400px;
   display: flex;
@@ -41,7 +59,7 @@ export const BoothCardContainer = styled.div`
   @media (max-width: 1200px) {
     text-align: center;
     margin: 20px auto;
-    margin: 0px 50px;
+    margin: 0px 0px;
   }
 `;
 
