@@ -3,6 +3,7 @@ import { Box, Button, Container, Grid, Typography } from '@mui/material/';
 import styled from 'styled-components';
 import MainButton from '../components/Main/MainButton';
 import { useNavigate } from 'react-router-dom';
+import ClubListComponent from '../components/Booth/ClubListComponent';
 
 const DateSection = styled.section`
   display: flex;
@@ -43,12 +44,33 @@ const SelectButton = styled.button`
   }
 `;
 
+const clubData = [
+  {
+    id: 1,
+    name: '멋쟁이사자처럼',
+  },
+  {
+    id: 2,
+    name: '동그라미',
+  },
+  {
+    id: 3,
+    name: '아리랑',
+  },
+];
+
+const clubList = [
+  clubData?.map((club) => (
+    <ClubListComponent key={club.id} id={club.id} name={club.name} />
+  )),
+];
+
 const Booth = () => {
   const navigate = useNavigate();
   return (
     <>
       <Container component="main">
-        <Grid container sx={{}}>
+        <Grid container sx={{ fontFamily: 'insungitCutelivelyjisu' }}>
           <Grid
             item
             xs={12}
@@ -123,11 +145,42 @@ const Booth = () => {
               <SelectButton>공연 타임테이블</SelectButton>
             </SelectSection>
           </Grid>
-          <Grid item xs={12} md={7} sx={{}}>
+          <Grid item xs={12} md={6.5} sx={{ border: '1px solid black' }}>
             지도 이미지
           </Grid>
-          <Grid item xs={12} md={5} sx={{}}>
-            동아리 리스트
+          <Grid
+            item
+            xs={12}
+            md={5.5}
+            sx={{ border: '1px solid black', minHeight: '60vh' }}
+          >
+            <Grid item sx={{ display: 'flex', position: 'relative' }}>
+              <Typography
+                sx={{
+                  position: 'absolute',
+                  left: '1%',
+                  fontFamily: 'insungitCutelivelyjisu',
+                }}
+              >
+                부스번호
+              </Typography>
+              <Typography
+                sx={{
+                  position: 'absolute',
+                  left: '50%',
+                  top: '50%',
+                  transform: 'translate(-50%)',
+                  fontFamily: 'insungitCutelivelyjisu',
+                }}
+              >
+                동아리 명
+              </Typography>
+            </Grid>
+            <br />
+            <br />
+            <Grid item sx={{ position: 'relative' }}>
+              {[...clubList]}
+            </Grid>
           </Grid>
         </Grid>
       </Container>
