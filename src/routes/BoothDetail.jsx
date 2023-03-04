@@ -14,7 +14,7 @@ const BoothDetail = ({ onCategoryChange }) => {
   const club=
     {
       id: 1,
-      main_image:'https://velog.velcdn.com/images/seochan99/post/0dcffe62-7b09-4659-b272-157400e3c81a/image.png',
+      main_image:'https://velog.velcdn.com/images/seochan99/post/b414d9f0-5adf-49f2-a50b-c8a0ad3a3278/image.jpeg',
       title: '멋쟁이사자처럼',
       logo:'https://velog.velcdn.com/images/seochan99/post/3dc61517-baf1-4636-b514-f24910076286/image.jpeg',
       hashtag: '#코딩 #창업',
