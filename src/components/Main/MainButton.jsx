@@ -7,7 +7,7 @@ const NavButton = styled.button`
   width: auto;
   height: 50px;
   font-family: 'insungitCutelivelyjisu';
-  font-size: 16px;
+  font-size: 0.7em;
   font-weight: 500;
   background-color: transparent;
   background-position: center;
@@ -15,9 +15,10 @@ const NavButton = styled.button`
   background-size: contain;
   border: none;
   cursor: pointer;
+  transition: border-bottom 2s;
   &:hover {
     border-bottom: 1px solid ${theme.pointColor};
-    border-radius: 10px;
+    border-radius: 5px;
   }
 `;
 
