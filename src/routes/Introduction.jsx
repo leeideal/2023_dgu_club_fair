@@ -11,7 +11,15 @@ const Introduction = () => {
 
   return (
     <>
-      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+      <Box
+        gap={7}
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '10vh',
+        }}
+      >
         <MainButton
           pageCurrent
           buttonName="동아리 소개"
