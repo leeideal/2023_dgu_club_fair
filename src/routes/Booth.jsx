@@ -5,11 +5,46 @@ import { useNavigate } from 'react-router-dom';
 import ClubListComponent from '../components/Booth/ClubListComponent';
 import BoothMap from '../assets/images/boothMap.png';
 import {
-  DateSection,
   ImageSection,
-  SelectButton,
+  LogoButton,
   SelectSection,
 } from '../components/Booth/BoothStyled';
+import styled from 'styled-components';
+import { theme } from '../theme';
+import Logo from '../assets/images/Logo.png';
+
+const DateSection = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${(props) => (props.dateCurrent ? '#ffa800' : 'black')};
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    color: #ffa800;
+    background-color: ${theme.secondaryColor};
+  }
+`;
+
+const SelectButton = styled.button`
+  width: 49%;
+  height: 90%;
+  background-color: ${(props) =>
+    props.toggleCurrent ? theme.secondaryColor : 'transparent'};
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  color: ${theme.pointColor};
+  cursor: pointer;
+  font-family: 'insungitCutelivelyjisu';
+  transition: 0.2s;
+  &:hover {
+    background-color: ${theme.primaryColor};
+  }
+`;
 
 const clubData = [
   {
@@ -82,7 +117,7 @@ const clubList = [
 
 const Booth = () => {
   const navigate = useNavigate();
-  const [date, setDate] = useState(true);
+  const [dateCurrent, setDateCurrent] = useState(true);
   const [toggle, setToggle] = useState(true);
   return (
     <>
@@ -99,6 +134,12 @@ const Booth = () => {
               minHeight: '10vh',
             }}
           >
+            <LogoButton
+              src={Logo}
+              onClick={() => {
+                navigate('/');
+              }}
+            />
             <MainButton
               buttonName="동아리 소개"
               onClick={() => navigate('/introduction')}
@@ -123,7 +164,10 @@ const Booth = () => {
               minHeight: '10vh',
             }}
           >
-            <DateSection>
+            <DateSection
+              dateCurrent={dateCurrent}
+              onClick={() => setDateCurrent(!dateCurrent)}
+            >
               <Typography
                 sx={{
                   fontFamily: 'insungitCutelivelyjisu',
@@ -134,7 +178,10 @@ const Booth = () => {
                 <br />9
               </Typography>
             </DateSection>
-            <DateSection>
+            <DateSection
+              dateCurrent={!dateCurrent}
+              onClick={() => setDateCurrent(!dateCurrent)}
+            >
               <Typography
                 sx={{
                   fontFamily: 'insungitCutelivelyjisu',
@@ -158,10 +205,16 @@ const Booth = () => {
             }}
           >
             <SelectSection>
-              <SelectButton onClick={() => setToggle(!toggle)}>
+              <SelectButton
+                onClick={() => setToggle(!toggle)}
+                toggleCurrent={toggle}
+              >
                 동아리 부스
               </SelectButton>
-              <SelectButton onClick={() => setToggle(!toggle)}>
+              <SelectButton
+                onClick={() => setToggle(!toggle)}
+                toggleCurrent={!toggle}
+              >
                 공연 타임테이블
               </SelectButton>
             </SelectSection>
