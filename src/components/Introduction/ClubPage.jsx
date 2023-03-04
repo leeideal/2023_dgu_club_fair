@@ -4,11 +4,14 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+
 
 
 
 const ClubPageWrapper = styled.div`
-margin-top: 30px;
+    margin-top: 30px;
+    margin-bottom: 70px;
   display: flex;
   flex-direction: column;
 `;
@@ -51,7 +54,7 @@ const Logo = styled.img`
     border-radius: 50%;
     margin-right:15px;
     @media (max-width: 1200px) {
-        width: 20%;
+        width: 20%;겨
   }
 `
 const ClubLocation = styled.div`
@@ -99,8 +102,8 @@ const ClubPage = ({club}) => {
             </div>
         </div>
         <ClubLocation>
-            <Location>동아리방 위치 : {club.roomLocation}</Location>
-            <Location>동아리박람회 위치 : {club.boothLocation}</Location>
+            <Location><FontAwesomeIcon icon={faMapMarkerAlt}/> 동아리방 위치 : {club.roomLocation}</Location>
+            <Location><FontAwesomeIcon icon={faMapMarkerAlt}/> 동아리박람회 위치 : {club.boothLocation}</Location>
         </ClubLocation>
       </ClubHeader>
 
@@ -118,9 +121,7 @@ const ClubPage = ({club}) => {
         <DetailDesTitle>인스타그램 및 문의</DetailDesTitle>
         <DetailDesBody><FontAwesomeIcon icon={faPhone} /> : {club.inquiry[0]}</DetailDesBody>
         <DetailDesBody><FontAwesomeIcon icon={faInstagram} /> : {club.inquiry[1]}</DetailDesBody>
-     
-
-      </ClubDescription>
+     </ClubDescription>
       {/* Add more components here for additional information */}
     </ClubPageWrapper>
   );

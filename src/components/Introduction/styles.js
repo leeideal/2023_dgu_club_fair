@@ -59,7 +59,7 @@ export const BoothCardContainer = styled.div`
   @media (max-width: 1200px) {
     text-align: center;
     margin: 20px auto;
-    margin: 0px 30px;
+    margin: 0px 0px;
   }
 `;
 
