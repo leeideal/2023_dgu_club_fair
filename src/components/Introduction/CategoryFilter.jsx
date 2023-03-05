@@ -45,40 +45,6 @@ const CategoryFilter = ({ onCategoryChange }) => {
     "친목",
   ];
 
-  // 카드데이터
-  const [cardsData, setCardsData] = useState([
-    {
-      id: 1,
-      title: '멋쟁이사자처럼',
-      introduction: '#코딩 #창업',
-      images: [
-        {
-      id: 1,
-          originFileName: '멋사.jpg',
-          serverFileName: '6fb151081add763ec08da678a9578eff',
-          storedFilePath: 'https://han.gl/pYMEv',
-        },
-      ],
-      category:"IT"
-    },
-    {
-      id: 2,
-      title: 'AJAX',
-      introduction: '#힙합 #공연',
-      type:1,
-      likeCnt: 100,
-      images: [
-        {
-      id: 1,
-          originFileName: '멋사.jpg',
-          serverFileName: '6fb151081add763ec08da678a9578eff',
-          storedFilePath: 'https://han.gl/pYMEv',
-        },
-      ],
-      category:"문화·예술·공연"
-    },
-  ]);
-
   // 카드보이게
   const visibleCards = selectedCategory === '전체'
     ? nweets
@@ -110,12 +76,12 @@ const handleClick = (category) => {
       ))}
     </CategoryWrap>
     <BoothCardContainer>
+  
     {visibleCards.map((boo)=>{
       return(
         <>
         <BoothCard
-          key = {boo.id}
-          boothId = {boo.id}
+          key = {boo.title}
           title = {boo.title}
           intro = {boo.hashtag}
           image ={boo.attachmentUrl2}

@@ -13,7 +13,8 @@ const CTAButton = styled.button`
   color: #8D5500;
   border: none;
   border-radius: 50px;
-  padding: 16px 200px;
+  padding: 16px 100px;
+  width: 40%;
   font-size: 15px;
   font-weight: bold;
   text-align: center;
@@ -23,8 +24,9 @@ const CTAButton = styled.button`
   left: 50%;
   transform: translateX(-50%);
   @media (max-width: 1200px) {
-    font-size: 14px;
-    padding: 16px 70px;
+    font-size: 12px;
+    width: 70%;
+    padding: 14px 40px;
 }
 `;
 
@@ -38,7 +40,7 @@ const Introduction = () => {
   }
 
   return (
-    <>
+    <div style={{marginBottom:"100px"}}>
       <Box
         sx={{
           display: 'flex',
@@ -53,7 +55,7 @@ const Introduction = () => {
       <CTAButton onClick={handleOnClick}>
       동아리 추천 테스트 하러 가기
       </CTAButton>
-    </>
+    </div>
   );
 };
 
