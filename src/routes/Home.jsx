@@ -83,7 +83,7 @@ const Home = ({ userObj }) => {
             //storage 참조 경로에 있는 파일의 URL을 다운로드해서 attachmentUrl 변수에 넣어서 업데이트
             attachmentUrl = await getDownloadURL(response.ref);
         }
-        if (attachment2 != "")
+        if (attachment2 !== "")
         {
             //파일 경로 참조 만들기
             const attachmentRef = ref(storageService, `${userObj.uid}/${v4()}`);
@@ -267,7 +267,7 @@ const Home = ({ userObj }) => {
         //상태관리
         reader.onloadend = (finshedEvent) => {
             // currentTarget - result에 url이 저장되어 있음
-            console.log(finshedEvent);
+            // console.log(finshedEvent);
             const {
                 currentTarget: { result },
             } = finshedEvent;
@@ -293,7 +293,7 @@ const Home = ({ userObj }) => {
         //상태관리
         reader.onloadend = (finshedEvent) => {
             // currentTarget - result에 url이 저장되어 있음
-            console.log(finshedEvent);
+            // console.log(finshedEvent);
             const {
                 currentTarget: { result },
             } = finshedEvent;

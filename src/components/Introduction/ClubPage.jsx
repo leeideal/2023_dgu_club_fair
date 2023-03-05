@@ -83,15 +83,16 @@ const DetailDesBody = styled.p`
 `
 const ClubPage = ({club}) => {
 
+    
     return (
     <ClubPageWrapper>
     {/* 동아리 단체사진 */}
-    <ClubImage src={club.main_image} alt="Club Image" />
+    <ClubImage src={club.attachmentUrl} alt="Club Image" />
 
 
     <ClubHeader>
         <div style={{ display: "flex", alignItems: "center" }}>
-            <Logo src={club.logo}/>
+            <Logo src={club.attachmentUrl2}/>
             <div>
                 <ClubTitle>{club.title}</ClubTitle>
                 <ClubHastag>{club.hashtag}</ClubHastag>
@@ -114,8 +115,8 @@ const ClubPage = ({club}) => {
         <DetailDesBody>{club.boothLocation}</DetailDesBody>
 
         <DetailDesTitle>인스타그램 및 문의</DetailDesTitle>
-        <DetailDesBody><FontAwesomeIcon icon={faPhone} /> : {club.inquiry[0]}</DetailDesBody>
-        <DetailDesBody><FontAwesomeIcon icon={faInstagram} /> : {club.inquiry[1]}</DetailDesBody>
+        <DetailDesBody><FontAwesomeIcon icon={faPhone} /> : {club.inquiry1}</DetailDesBody>
+        <DetailDesBody><FontAwesomeIcon icon={faInstagram} /> : {club.inquiry2}</DetailDesBody>
 
     </ClubDescription>
       {/* Add more components here for additional information */}

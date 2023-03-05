@@ -110,7 +110,10 @@ const Text = styled.p`
 const Image = styled.img`
   text-align: right;
   border-radius: 50%;
-  width: 40%;
+  width: 50%;
+  @media (max-width: 1200px) {
+    width: 40%;
+  }
 `;
 
 const ImageWrap = styled.div`
@@ -132,5 +135,23 @@ const Card = ({ title, text, boothId, image, onClick }) => {
     </Container>
   );
 };
+export const Background = styled.div`
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: #ffffffb7;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const LoadingText = styled.div`
+  font: 1rem 'Noto Sans KR';
+  text-align: center;
+`;
 
 export default Card;

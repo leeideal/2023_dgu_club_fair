@@ -17,6 +17,7 @@ const BoothCard = ({
 
     <>
     <Card
+      boothId = {boothId}
       title={title}
       text={intro}
       image={image}
