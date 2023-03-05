@@ -7,6 +7,7 @@ import MainButton from '../components/Main/MainButton';
 import { Box } from '@mui/material';
 import Logo from '../assets/images/Logo.png';
 import { LogoButton } from '../components/Booth/BoothStyled';
+import Navigation from '../components/Nav/Navigation';
 
 const Introduction = () => {
   const navigate = useNavigate();
@@ -14,7 +15,6 @@ const Introduction = () => {
   return (
     <>
       <Box
-        gap={7}
         sx={{
           display: 'flex',
           justifyContent: 'center',
@@ -22,25 +22,7 @@ const Introduction = () => {
           minHeight: '10vh',
         }}
       >
-        <LogoButton
-          src={Logo}
-          onClick={() => {
-            navigate('/');
-          }}
-        />
-        <MainButton
-          pageCurrent
-          buttonName="동아리 소개"
-          onClick={() => navigate('/introduction')}
-        ></MainButton>
-        <MainButton
-          buttonName="동아리 부스"
-          onClick={() => navigate('/booth')}
-        ></MainButton>
-        <MainButton
-          buttonName="ABOUT"
-          onClick={() => navigate('/about')}
-        ></MainButton>
+        <Navigation />
       </Box>
       <CategoryFilter />
     </>

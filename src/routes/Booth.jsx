@@ -1,16 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { Container, Grid, Typography } from '@mui/material/';
-import MainButton from '../components/Main/MainButton';
-import { useNavigate } from 'react-router-dom';
-import ClubListComponent from '../components/Booth/ClubListComponent';
-import styled from 'styled-components';
 import { theme } from '../theme';
-import Logo from '../assets/images/Logo.png';
-import MapCurrent from '../components/Booth/MapCurrent';
+import styled from 'styled-components';
 import { LinkContext } from '../context/LinkContext';
+import ClubListComponent from '../components/Booth/ClubListComponent';
+import MapCurrent from '../components/Booth/MapCurrent';
 import { testingData10, testingData9 } from '../components/Dummy/SampleData';
 import TimeTable from '../components/Booth/TimeTable';
-import { LogoButton, SelectSection } from '../components/Booth/BoothStyled';
+import { SelectSection } from '../components/Booth/BoothStyled';
+import Navigation from '../components/Nav/Navigation';
 
 // Props Styled-----------------------------------------------------------
 const DateSection = styled.section`
@@ -60,14 +58,13 @@ const clubList10 = [
 
 const Booth = () => {
   // Hooks 관리-----------------------------------------------------------
-  const navigate = useNavigate();
   const [dateCurrent, setDateCurrent] = useState(true);
   const [toggle, setToggle] = useState(true);
   const { idParams } = useContext(LinkContext);
 
   return (
     <>
-      <Container component="main">
+      <Container component="main" className="fadeIn">
         <Grid
           container
           sx={{
@@ -75,37 +72,7 @@ const Booth = () => {
             justifyContent: 'space-around',
           }}
         >
-          <Grid
-            item
-            xs={12}
-            gap={4}
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              minHeight: '10vh',
-            }}
-          >
-            <LogoButton
-              src={Logo}
-              onClick={() => {
-                navigate('/');
-              }}
-            />
-            <MainButton
-              buttonName="동아리 소개"
-              onClick={() => navigate('/introduction')}
-            ></MainButton>
-            <MainButton
-              pageCurrent
-              buttonName="동아리 부스"
-              onClick={() => navigate('/booth')}
-            ></MainButton>
-            <MainButton
-              buttonName="ABOUT"
-              onClick={() => navigate('/about')}
-            ></MainButton>
-          </Grid>
+          <Navigation />
           <Grid
             item
             xs={12}
@@ -113,7 +80,6 @@ const Booth = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              minHeight: '5vh',
             }}
           >
             <DateSection
@@ -153,7 +119,7 @@ const Booth = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              minHeight: '13vh',
+              minHeight: '15vh',
             }}
           >
             <SelectSection>
@@ -185,18 +151,16 @@ const Booth = () => {
               md={4.5}
               sx={{
                 margin: 4,
-                height: '60vh',
+                height: 'auto',
                 overflowY: 'auto',
-                scrollbarColor: 'red',
-                '&:-webkitScrollbar': {
-                  width: '8px',
-                  height: '8px',
-                  borderRadius: '6px',
-                  background: 'rgba(255, 255, 255, 0.4)',
+                '&::-webkit-scrollbar': {
+                  width: '10px',
+                  borderRadius: '5px',
+                  background: '#f4f0ec',
                 },
-                '&:-webkitScrollbarThumb': {
-                  background: 'rgba(0, 0, 0, 0.3)',
-                  borderRadius: '6px',
+                '&::-webkit-scrollbar-thumb': {
+                  background: '#603900',
+                  borderRadius: '5px',
                 },
               }}
             >

@@ -38,7 +38,7 @@ const MapCurrent = ({ idParams }) => {
   }
   return (
     <>
-      <ImageSection src={mapSrc} />
+      <ImageSection src={mapSrc} className="fadeIn" />
     </>
   );
 };
