@@ -1,6 +1,6 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
+import { LinkContext } from '../../context/LinkContext';
 
 const ListSection = styled.section`
   width: 100%;
@@ -37,16 +37,17 @@ const NameSection = styled.span`
 `;
 
 const ClubListComponent = ({ id, name }) => {
-  const navigate = useNavigate();
-  const mapCurrent = (mapSection) => {};
+  const { setIdParams } = useContext(LinkContext);
   return (
     <>
-      {/* <Link to={`/clublist/${id}`} state={{ id, name }}> */}
-      <ListSection>
+      <ListSection
+        onClick={() => {
+          setIdParams(id);
+        }}
+      >
         <IdSection>{id}</IdSection>
         <NameSection>{name}</NameSection>
       </ListSection>
-      {/* </Link> */}
     </>
   );
 };
