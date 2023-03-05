@@ -119,7 +119,7 @@ const Image = styled.img`
 const ImageWrap = styled.div`
   text-align: right;
 `;
-const Card = ({ title, text, boothId, image, onClick }) => {
+const Card = ({ title, text, image, onClick }) => {
   const navigate = useNavigate();
   function handleClick() {
     navigate(`/booth/${title}`);

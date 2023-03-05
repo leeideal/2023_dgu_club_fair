@@ -76,12 +76,12 @@ const handleClick = (category) => {
       ))}
     </CategoryWrap>
     <BoothCardContainer>
+  
     {visibleCards.map((boo)=>{
       return(
         <>
         <BoothCard
-          key = {boo.id}
-          boothId = {boo.id}
+          key = {boo.title}
           title = {boo.title}
           intro = {boo.hashtag}
           image ={boo.attachmentUrl2}
