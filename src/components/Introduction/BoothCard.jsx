@@ -3,12 +3,9 @@ import React from "react";
 import Card from "./styles";
 
 const BoothCard = ({
-    key,
-    boothId,
     title,
     intro,
     image
-
 }) => {
   const handleButtonClick = () => {
   };
@@ -17,7 +14,6 @@ const BoothCard = ({
 
     <>
     <Card
-      boothId = {boothId}
       title={title}
       text={intro}
       image={image}
