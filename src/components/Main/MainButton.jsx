@@ -37,10 +37,10 @@ const HoverButton = styled.button`
   cursor: pointer;
 `;
 
-const MainButton = ({ pageCurrent, onClick, buttonName }) => {
+const MainButton = ({ location, pageCurrent, onClick, buttonName }) => {
   return (
     <>
-      {pageCurrent ? (
+      {location === pageCurrent ? (
         <HoverButton onClick={onClick}>{buttonName}</HoverButton>
       ) : (
         <NavButton onClick={onClick}>{buttonName}</NavButton>

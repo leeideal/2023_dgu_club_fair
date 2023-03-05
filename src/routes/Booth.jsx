@@ -1,16 +1,15 @@
 import React, { useContext, useState } from 'react';
-import { Container, Grid, Typography } from '@mui/material/';
-import MainButton from '../components/Main/MainButton';
 import { useNavigate } from 'react-router-dom';
-import ClubListComponent from '../components/Booth/ClubListComponent';
-import styled from 'styled-components';
+import { Container, Grid, Typography } from '@mui/material/';
 import { theme } from '../theme';
-import Logo from '../assets/images/Logo.png';
-import MapCurrent from '../components/Booth/MapCurrent';
+import styled from 'styled-components';
 import { LinkContext } from '../context/LinkContext';
+import ClubListComponent from '../components/Booth/ClubListComponent';
+import MapCurrent from '../components/Booth/MapCurrent';
 import { testingData10, testingData9 } from '../components/Dummy/SampleData';
 import TimeTable from '../components/Booth/TimeTable';
-import { LogoButton, SelectSection } from '../components/Booth/BoothStyled';
+import { SelectSection } from '../components/Booth/BoothStyled';
+import Navigation from '../components/Nav/Navigation';
 
 // Props Styled-----------------------------------------------------------
 const DateSection = styled.section`
@@ -75,37 +74,7 @@ const Booth = () => {
             justifyContent: 'space-around',
           }}
         >
-          <Grid
-            item
-            xs={12}
-            gap={4}
-            sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              minHeight: '10vh',
-            }}
-          >
-            <LogoButton
-              src={Logo}
-              onClick={() => {
-                navigate('/');
-              }}
-            />
-            <MainButton
-              buttonName="동아리 소개"
-              onClick={() => navigate('/introduction')}
-            ></MainButton>
-            <MainButton
-              pageCurrent
-              buttonName="동아리 부스"
-              onClick={() => navigate('/booth')}
-            ></MainButton>
-            <MainButton
-              buttonName="ABOUT"
-              onClick={() => navigate('/about')}
-            ></MainButton>
-          </Grid>
+          <Navigation />
           <Grid
             item
             xs={12}
