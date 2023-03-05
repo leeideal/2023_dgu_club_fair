@@ -15,7 +15,7 @@ import React, { useState,useEffect } from 'react';
 import { DeatailWrap } from '../components/Introduction/styles';
 import { BoothMainImage } from '../components/Introduction/styles';
 import ClubPage from '../components/Introduction/ClubPage';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useLocation } from 'react-router-dom';
 import MainButton from '../components/Main/MainButton';
 import { Box } from '@mui/material';
 import Logo from '../assets/images/Logo.png';
@@ -23,10 +23,15 @@ import { LogoButton } from '../components/Booth/BoothStyled';
 import Navigation from '../components/Nav/Navigation';
 
 const ClubDetail = ({ onCategoryChange }) => {
-  const [selectedCategory, setSelectedCategory] = useState('전체');
   const navigate = useNavigate();
   const [nweets, setNweets] = useState([]);
-  
+
+  // 현재 부스 이름 가져오기
+  const location = useLocation();
+  const decodedUrl = decodeURI(location.pathname);
+  var boothName = decodedUrl.substring(7);
+  // console.log(boothName)
+
 
   useEffect(() => {
     const q = query(
