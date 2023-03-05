@@ -1,12 +1,19 @@
 import { dbService, storageService } from "../fbase";
 import { ref, uploadString, getDownloadURL } from "@firebase/storage";
-
+import styled from "styled-components";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import 'firebase/firestore';
 import {
+    doc,
     addDoc,
     collection,
     onSnapshot,
     query,
     orderBy,
+    where,
     getDocs,
 } from "firebase/firestore";
 import { v4 } from "uuid";
@@ -15,12 +22,90 @@ import React, { useState,useEffect } from 'react';
 import { DeatailWrap } from '../components/Introduction/styles';
 import { BoothMainImage } from '../components/Introduction/styles';
 import ClubPage from '../components/Introduction/ClubPage';
-import { useNavigate,useLocation } from 'react-router-dom';
+import { useNavigate,useLocation,useParams } from 'react-router-dom';
 import MainButton from '../components/Main/MainButton';
 import { Box } from '@mui/material';
-import Logo from '../assets/images/Logo.png';
 import { LogoButton } from '../components/Booth/BoothStyled';
 import Navigation from '../components/Nav/Navigation';
+
+
+const ClubPageWrapper = styled.div`
+    margin-top: 30px;
+    margin-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+`;
+
+const ClubImage = styled.img`
+    margin: 0 auto;
+    max-width: 30%;
+    height: auto;
+    margin-bottom: 2rem;
+    border-radius: 20px;
+    @media (max-width: 1200px) {
+
+    max-width: 100%;
+    }
+`;
+
+const ClubTitle = styled.h1`
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+    color:#513102;
+`;
+
+const ClubDescription = styled.div`
+    white-space: pre-wrap;
+`;
+
+const ClubHastag = styled.p`
+    font-size: 1em;
+    color: #FF9B9B;
+    
+`
+
+const ClubHeader = styled.div`
+    
+`
+const Logo = styled.img`
+    width: 7%;
+    border-radius: 50%;
+    margin-right:15px;
+    @media (max-width: 1200px) {
+        width: 20%;
+}
+`
+const ClubLocation = styled.div`
+    margin-top: 30px;
+    color: #AA9887;
+    font-size:12px;
+`
+
+const Location = styled.p`
+margin: 10px;
+    
+`
+
+const DetailDesTitle = styled.div`
+    margin-top: 20px;
+    font-size: 13px;
+    text-align: left;
+    color:#603900;
+    border: 1px solid #F4EEE4;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 8px 15px;
+`
+const DetailDesBody = styled.p`
+    margin: 13px;
+    color:#714709;
+    font-size: 12px;
+    line-height: 130%;
+`
+
+
 
 const ClubDetail = ({ onCategoryChange }) => {
   const navigate = useNavigate();
@@ -37,35 +122,32 @@ const ClubDetail = ({ onCategoryChange }) => {
     const q = query(
         collection(dbService, "booth"),
     );
+
     onSnapshot(q, (snapshot) => {
         const nweetArr = snapshot.docs.map((doc) => ({
             id: doc.id,
             ...doc.data(),
         }));
+
         setNweets(nweetArr);
     });
 }, []);
 
-  // 카드데이터
-  const club = {
-    id: 1,
-    main_image:
-      'https://velog.velcdn.com/images/seochan99/post/b414d9f0-5adf-49f2-a50b-c8a0ad3a3278/image.jpeg',
-    title: '멋쟁이사자처럼',
-    logo: 'https://velog.velcdn.com/images/seochan99/post/3dc61517-baf1-4636-b514-f24910076286/image.jpeg',
-    hashtag: '#코딩 #창업',
-    roomLocation: '학생회관 2층 작은 문',
-    boothLocation: '목 20번, 금 10번',
-    introduce: '안녕하세요 멋쟁이사자처럼입니다.\nPossibility to Reality',
-    activity: '1년동안 코딩만 주구장창 해요 ^_^',
-    recruit: '모집대상~',
-    boothLocation: '목요일 금요일 만해광장에서 만나요~~!',
-    inquiry: ['010-1234-1234', '@dgulikelion'],
-  };
 
+const [documents, setDocuments] = useState([]);
+
+useEffect(() => {
+  async function fetchDocuments() {
   
+    const q = query(collection(dbService, "booth"), where("title", "==", boothName));
+    const querySnapshot = await getDocs(q);
+    const docs = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    setDocuments(docs);
+  }
 
-
+  fetchDocuments();
+}, []);
+  
   return (
     <>
       <Box
@@ -79,7 +161,50 @@ const ClubDetail = ({ onCategoryChange }) => {
         <Navigation />
       </Box>
       <DeatailWrap>
-        <ClubPage club={club} />
+      
+      <div>
+      {documents.map((club) => (
+        <div key={club.id}>
+
+<ClubPageWrapper>
+    {/* 동아리 단체사진 */}
+    <ClubImage src={club.attachmentUrl} alt="Club Image" />
+
+
+    <ClubHeader>
+        <div style={{ display: "flex", alignItems: "center" }}>
+            <Logo src={club.attachmentUrl2}/>
+            <div>
+                <ClubTitle>{club.title}</ClubTitle>
+                <ClubHastag>{club.hashtag}</ClubHastag>
+            </div>
+        </div>
+        <ClubLocation>
+            <Location><FontAwesomeIcon icon={faMapMarkerAlt}/> 동아리방 위치 : {club.roomLocation}</Location>
+            <Location><FontAwesomeIcon icon={faMapMarkerAlt}/> 동아리박람회 위치 : {club.boothLocation}</Location>
+        </ClubLocation>
+    </ClubHeader>
+
+    <ClubDescription>
+        <DetailDesTitle>소개글</DetailDesTitle>
+        <DetailDesBody>{club.introduce}</DetailDesBody>
+
+        <DetailDesTitle>활동안내</DetailDesTitle>
+        <DetailDesBody>{club.activity}</DetailDesBody>
+
+        <DetailDesTitle>동아리 부스 안내</DetailDesTitle>
+        <DetailDesBody>{club.boothLocation}</DetailDesBody>
+
+        <DetailDesTitle>인스타그램 및 문의</DetailDesTitle>
+        <DetailDesBody><FontAwesomeIcon icon={faPhone} /> : {club.inquiry1}</DetailDesBody>
+        <DetailDesBody><FontAwesomeIcon icon={faInstagram} /> : {club.inquiry2}</DetailDesBody>
+
+    </ClubDescription>
+      {/* Add more components here for additional information */}
+    </ClubPageWrapper>
+        </div>
+      ))}
+    </div>
       </DeatailWrap>
     </>
   );

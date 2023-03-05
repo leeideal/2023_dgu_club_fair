@@ -40,7 +40,7 @@ const Auth = () => {
                     password
                 );
             }
-            console.log(data);
+            // console.log(data);
         } catch (error) {
             setError(error.message);
         }
