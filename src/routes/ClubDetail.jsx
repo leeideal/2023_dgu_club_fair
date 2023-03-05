@@ -3,10 +3,7 @@ import { DeatailWrap } from '../components/Introduction/styles';
 import { BoothMainImage } from '../components/Introduction/styles';
 import ClubPage from '../components/Introduction/ClubPage';
 import { useNavigate } from 'react-router-dom';
-import MainButton from '../components/Main/MainButton';
 import { Box } from '@mui/material';
-import Logo from '../assets/images/Logo.png';
-import { LogoButton } from '../components/Booth/BoothStyled';
 import Navigation from '../components/Nav/Navigation';
 
 const ClubDetail = ({ onCategoryChange }) => {
