@@ -1,39 +1,36 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { storageService } from '../../fbase';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { faPhone } from '@fortawesome/free-solid-svg-icons'
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
-
-
-
 const ClubPageWrapper = styled.div`
     margin-top: 30px;
     margin-bottom: 70px;
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 `;
 
 const ClubImage = styled.img`
-  margin: 0 auto;
-  max-width: 30%;
-  height: auto;
-  margin-bottom: 2rem;
-  border-radius: 20px;
-  @media (max-width: 1200px) {
+    margin: 0 auto;
+    max-width: 30%;
+    height: auto;
+    margin-bottom: 2rem;
+    border-radius: 20px;
+    @media (max-width: 1200px) {
 
     max-width: 100%;
-  }
+    }
 `;
 
 const ClubTitle = styled.h1`
-  font-size: 25px;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 1rem;
-  color:#513102;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+    color:#513102;
 `;
 
 const ClubDescription = styled.div`
@@ -54,8 +51,8 @@ const Logo = styled.img`
     border-radius: 50%;
     margin-right:15px;
     @media (max-width: 1200px) {
-        width: 20%;겨
-  }
+        width: 20%;
+}
 `
 const ClubLocation = styled.div`
     margin-top: 30px;
@@ -85,15 +82,14 @@ const DetailDesBody = styled.p`
     line-height: 130%;
 `
 const ClubPage = ({club}) => {
-    console.log(club)
 
-    
-  return (
+    return (
     <ClubPageWrapper>
-      <ClubImage src={club.main_image} alt="Club Image" />
-      
-      
-      <ClubHeader>
+    {/* 동아리 단체사진 */}
+    <ClubImage src={club.main_image} alt="Club Image" />
+
+
+    <ClubHeader>
         <div style={{ display: "flex", alignItems: "center" }}>
             <Logo src={club.logo}/>
             <div>
@@ -105,12 +101,11 @@ const ClubPage = ({club}) => {
             <Location><FontAwesomeIcon icon={faMapMarkerAlt}/> 동아리방 위치 : {club.roomLocation}</Location>
             <Location><FontAwesomeIcon icon={faMapMarkerAlt}/> 동아리박람회 위치 : {club.boothLocation}</Location>
         </ClubLocation>
-      </ClubHeader>
+    </ClubHeader>
 
-      <ClubDescription>
+    <ClubDescription>
         <DetailDesTitle>소개글</DetailDesTitle>
         <DetailDesBody>{club.introduce}</DetailDesBody>
-        
 
         <DetailDesTitle>활동안내</DetailDesTitle>
         <DetailDesBody>{club.activity}</DetailDesBody>
@@ -121,10 +116,11 @@ const ClubPage = ({club}) => {
         <DetailDesTitle>인스타그램 및 문의</DetailDesTitle>
         <DetailDesBody><FontAwesomeIcon icon={faPhone} /> : {club.inquiry[0]}</DetailDesBody>
         <DetailDesBody><FontAwesomeIcon icon={faInstagram} /> : {club.inquiry[1]}</DetailDesBody>
-     </ClubDescription>
+
+    </ClubDescription>
       {/* Add more components here for additional information */}
     </ClubPageWrapper>
-  );
+    );
 };
 
 export default ClubPage;
