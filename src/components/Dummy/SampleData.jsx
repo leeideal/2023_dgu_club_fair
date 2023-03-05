@@ -185,15 +185,15 @@ export const TIME_DATA_THU = [
   {
     id: 9,
     logo: '../assets/images/likelion.png',
-    starttime: '22:30',
-    endtime: '23:00',
+    starttime: '17:0',
+    endtime: '17:30',
     club: '두둠칫',
   },
   {
     id: 10,
     logo: '../assets/images/likelion.png',
-    starttime: '23:00',
-    endtime: '23:30',
+    starttime: '17:30',
+    endtime: '18:00',
     club: '아리랑',
   },
 ];
