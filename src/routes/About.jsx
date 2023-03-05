@@ -75,6 +75,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 100vw;
+  margin-bottom: 10vh;
 `;
 
 
