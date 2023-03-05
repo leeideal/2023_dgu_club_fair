@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Container, Grid, Typography } from '@mui/material/';
 import MainButton from '../components/Main/MainButton';
 import { useNavigate } from 'react-router-dom';
 import ClubListComponent from '../components/Booth/ClubListComponent';
-import BoothMap from '../assets/images/boothMap.png';
+import BoothMap from '../assets/images/boothMap0.png';
 import {
   ImageSection,
   LogoButton,
@@ -12,6 +12,8 @@ import {
 import styled from 'styled-components';
 import { theme } from '../theme';
 import Logo from '../assets/images/Logo.png';
+import MapCurrent from '../components/Booth/MapCurrent';
+import { LinkContext } from '../context/LinkContext';
 
 const DateSection = styled.section`
   display: flex;
@@ -24,7 +26,7 @@ const DateSection = styled.section`
   cursor: pointer;
   transition: 0.2s;
   &:hover {
-    color: red;
+    color: ${theme.pointColor};
     background-color: ${theme.secondaryColor};
   }
 `;
@@ -134,15 +136,22 @@ const Booth = () => {
   const navigate = useNavigate();
   const [dateCurrent, setDateCurrent] = useState(true);
   const [toggle, setToggle] = useState(true);
+  const { idParams } = useContext(LinkContext);
 
   return (
     <>
       <Container component="main">
-        <Grid container sx={{ fontFamily: 'insungitCutelivelyjisu' }}>
+        <Grid
+          container
+          sx={{
+            fontFamily: 'insungitCutelivelyjisu',
+            justifyContent: 'space-around',
+          }}
+        >
           <Grid
             item
             xs={12}
-            gap={7}
+            gap={4}
             sx={{
               display: 'flex',
               justifyContent: 'center',
@@ -177,7 +186,7 @@ const Booth = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              minHeight: '10vh',
+              minHeight: '5vh',
             }}
           >
             <DateSection
@@ -217,7 +226,7 @@ const Booth = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              minHeight: '10vh',
+              minHeight: '13vh',
             }}
           >
             <SelectSection>
@@ -235,14 +244,15 @@ const Booth = () => {
               </SelectButton>
             </SelectSection>
           </Grid>
-          <Grid item xs={12} md={7}>
-            {toggle ? <ImageSection src={BoothMap} /> : 'table'}
+          <Grid item xs={12} md={6}>
+            {toggle ? <MapCurrent idParams={idParams} /> : 'loading...'}
           </Grid>
           <Grid
             item
             xs={12}
-            md={5}
+            md={4.5}
             sx={{
+              margin: 4,
               height: '60vh',
               overflowY: 'auto',
               scrollbarColor: 'red',
