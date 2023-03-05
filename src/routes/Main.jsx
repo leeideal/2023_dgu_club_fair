@@ -1,8 +1,10 @@
 import React from 'react';
 import { Box } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import Navigation from '../components/Nav/Navigation';
 
 const Main = () => {
+  const navigate = useNavigate();
   return (
     <>
       <Box
@@ -15,6 +17,7 @@ const Main = () => {
         }}
       >
         <Navigation />
+        <button onClick={() => navigate('/submit')}>데이터 넣으러가기</button>
       </Box>
     </>
   );
