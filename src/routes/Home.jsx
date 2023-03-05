@@ -319,7 +319,6 @@ const Home = ({ userObj }) => {
                     onChange={onChangeTitle}
                     type="text"
                     placeholder="Title"
-                    maxLength={120}
                 />
                 
 
@@ -329,7 +328,6 @@ const Home = ({ userObj }) => {
                     onChange={onChangeHastag}
                     type="text"
                     placeholder="HasTag"
-                    maxLength={120}
                 />
 
                 {/* roomloacation */}
@@ -338,7 +336,6 @@ const Home = ({ userObj }) => {
                     onChange={onChangeRoomLocation}
                     type="text"
                     placeholder="동아리방 위치"
-                    maxLength={120}
                 />
 
                 {/* 부스위치 */}
@@ -347,7 +344,6 @@ const Home = ({ userObj }) => {
                     onChange={onChangeBoothLocation}
                     type="text"
                     placeholder="부스 위치"
-                    maxLength={120}
                 />
 
                 {/* intro */}
@@ -356,7 +352,6 @@ const Home = ({ userObj }) => {
                     onChange={onChangeIntroduce}
                     type="text"
                     placeholder="동아리 소개"
-                    maxLength={120}
                 />
 
                 {/* activity */}
@@ -365,7 +360,6 @@ const Home = ({ userObj }) => {
                     onChange={onChangeActivity}
                     type="text"
                     placeholder="활동소개"
-                    maxLength={120}
                 />
 
                 {/* 모집 */}
@@ -374,7 +368,6 @@ const Home = ({ userObj }) => {
                     onChange={onChangeRecruit}
                     type="text"
                     placeholder="모집안내"
-                    maxLength={120}
                 />
 
                {/* boothNotice */}
@@ -383,7 +376,6 @@ const Home = ({ userObj }) => {
                     onChange={onChangeBoothNotice}
                     type="text"
                     placeholder="부스 안내"
-                    maxLength={120}
                 />
                 {/* 카테고리 */}
                 <input
@@ -391,7 +383,6 @@ const Home = ({ userObj }) => {
                     onChange={onChangeCategory}
                     type="text"
                     placeholder="카테고리"
-                    maxLength={120}
                 />
                 {/* date1 */}
                 <input
@@ -399,7 +390,6 @@ const Home = ({ userObj }) => {
                     onChange={onChangeDate1}
                     type="text"
                     placeholder="date1"
-                    maxLength={120}
                 />
                 {/* date2 */}
                 <input
@@ -407,7 +397,6 @@ const Home = ({ userObj }) => {
                     onChange={onChangeDate2}
                     type="text"
                     placeholder="date2"
-                    maxLength={120}
                 />
                 {/* inquiry1 */}
                 <input
@@ -415,7 +404,6 @@ const Home = ({ userObj }) => {
                     onChange={onChangeInquiry1}
                     type="text"
                     placeholder="inquiry1"
-                    maxLength={120}
                 />
                 {/* inquiry2 */}
                 <input
@@ -423,7 +411,6 @@ const Home = ({ userObj }) => {
                     onChange={onChangeInquiry2}
                     type="text"
                     placeholder="inquiry2"
-                    maxLength={120}
                 />
 
                 {/* 메인이미지 */}
