@@ -1,9 +1,6 @@
 import React from 'react';
 import {
-  BoothDay,
-  BoothFri,
   BoothName,
-  BoothNav,
   BoothPerfoBox,
   BoothPerfoDetailBox,
   BoothPerfoLogo,
@@ -11,11 +8,8 @@ import {
   BoothPerforNo,
   BoothPerfoText,
   BoothScroll,
-  BoothTapBox,
-  BoothThu,
   BoothTime,
   BoothTimeTableBox,
-  Box,
   ImageSection,
 } from '../../components/Booth/BoothStyled';
 import { TIME_DATA_FRI, TIME_DATA_THU } from '../Dummy/SampleData';
@@ -42,6 +36,7 @@ const TimeTable = ({ dateCurrent }) => {
             <BoothScroll>
               {TIME_DATA_THU.map((data) => (
                 <BoothPerfoDetailBox
+                  key={data.id}
                   style={
                     date === 9 && time === data.starttime
                       ? {
@@ -127,6 +122,7 @@ const TimeTable = ({ dateCurrent }) => {
               {TIME_DATA_FRI.map((data) => {
                 return (
                   <BoothPerfoDetailBox
+                    key={data.id}
                     style={
                       date === 10 && time === data.starttime
                         ? {

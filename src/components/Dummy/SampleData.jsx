@@ -124,6 +124,7 @@ export const testingData10 = [
     name: '동당동',
   },
 ];
+
 export const TIME_DATA_THU = [
   {
     id: 1,
