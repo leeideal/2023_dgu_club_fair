@@ -110,7 +110,10 @@ const Text = styled.p`
 const Image = styled.img`
   text-align: right;
   border-radius: 50%;
-  width: 40%;
+  width: 50%;
+  @media (max-width: 1200px) {
+    width: 20%;
+  }
 `;
 
 const ImageWrap = styled.div`
