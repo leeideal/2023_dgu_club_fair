@@ -107,7 +107,12 @@ const DetailDesBody = styled.p`
     line-height: 130%;
 `
 
-
+const DesWrapper = styled.div`
+  margin: 0px 100px;
+  @media (max-width: 1200px) {
+    margin: 0px;
+}
+`
 
 const ClubDetail = ({ onCategoryChange }) => {
   const navigate = useNavigate();
@@ -172,7 +177,7 @@ useEffect(() => {
     {/* 동아리 단체사진 */}
     <ClubImage src={club.attachmentUrl} alt="Club Image" />
 
-
+    <DesWrapper>
     <ClubHeader>
         <div style={{ display: "flex", alignItems: "center" }}>
             <Logo src={club.attachmentUrl2}/>
@@ -194,14 +199,18 @@ useEffect(() => {
         <DetailDesTitle>활동안내</DetailDesTitle>
         <DetailDesBody>{club.activity}</DetailDesBody>
 
+        <DetailDesTitle>모집 안내</DetailDesTitle>
+        <DetailDesBody>{club.recruit}</DetailDesBody>
+
         <DetailDesTitle>동아리 부스 안내</DetailDesTitle>
-        <DetailDesBody>{club.boothLocation}</DetailDesBody>
+        <DetailDesBody>{club.boothNotice}</DetailDesBody>
 
         <DetailDesTitle>인스타그램 및 문의</DetailDesTitle>
         <DetailDesBody><FontAwesomeIcon icon={faPhone} /> : {club.inquiry1}</DetailDesBody>
         <DetailDesBody><FontAwesomeIcon icon={faInstagram} /> : {club.inquiry2}</DetailDesBody>
 
     </ClubDescription>
+    </DesWrapper>
       {/* Add more components here for additional information */}
     </ClubPageWrapper>
         </div>

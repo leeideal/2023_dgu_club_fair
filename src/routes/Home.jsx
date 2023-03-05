@@ -315,115 +315,111 @@ const Home = ({ userObj }) => {
             <form onSubmit={onSubmit}>           
                 {/* 타이틀 */}
                 <input
+                    required
                     value={title}
                     onChange={onChangeTitle}
                     type="text"
                     placeholder="Title"
-                    maxLength={120}
                 />
                 
 
                 {/* HashTag */}
                 <input
+                    required
                     value={hashtag}
                     onChange={onChangeHastag}
                     type="text"
                     placeholder="HasTag"
-                    maxLength={120}
                 />
 
                 {/* roomloacation */}
                 <input
+                    required
                     value={roomLocation}
                     onChange={onChangeRoomLocation}
                     type="text"
                     placeholder="동아리방 위치"
-                    maxLength={120}
                 />
 
                 {/* 부스위치 */}
                 <input
+                    required
                     value={boothLocation}
                     onChange={onChangeBoothLocation}
                     type="text"
                     placeholder="부스 위치"
-                    maxLength={120}
                 />
 
                 {/* intro */}
-                <input
+                <textarea
                     value={introduce}
                     onChange={onChangeIntroduce}
                     type="text"
                     placeholder="동아리 소개"
-                    maxLength={120}
                 />
 
                 {/* activity */}
-                <input
+                <textarea
                     value={activity}
                     onChange={onChangeActivity}
                     type="text"
                     placeholder="활동소개"
-                    maxLength={120}
                 />
 
                 {/* 모집 */}
-                <input
+                <textarea
                     value={recruit}
                     onChange={onChangeRecruit}
                     type="text"
                     placeholder="모집안내"
-                    maxLength={120}
                 />
 
                {/* boothNotice */}
-               <input
+               <textarea
                     value={boothNotice}
                     onChange={onChangeBoothNotice}
                     type="text"
                     placeholder="부스 안내"
-                    maxLength={120}
                 />
                 {/* 카테고리 */}
                 <input
+                    required
                     value={category}
                     onChange={onChangeCategory}
                     type="text"
                     placeholder="카테고리"
-                    maxLength={120}
                 />
                 {/* date1 */}
                 <input
+                    required
                     value={date1}
                     onChange={onChangeDate1}
                     type="text"
                     placeholder="date1"
-                    maxLength={120}
                 />
                 {/* date2 */}
                 <input
+                    required
                     value={date2}
                     onChange={onChangeDate2}
                     type="text"
                     placeholder="date2"
-                    maxLength={120}
                 />
                 {/* inquiry1 */}
                 <input
+                    required
                     value={inquiry1}
                     onChange={onChangeInquiry1}
                     type="text"
                     placeholder="inquiry1"
-                    maxLength={120}
                 />
                 {/* inquiry2 */}
                 <input
+                    required
                     value={inquiry2}
                     onChange={onChangeInquiry2}
                     type="text"
                     placeholder="inquiry2"
-                    maxLength={120}
                 />
 
                 {/* 메인이미지 */}
