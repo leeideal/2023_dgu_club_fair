@@ -315,6 +315,7 @@ const Home = ({ userObj }) => {
             <form onSubmit={onSubmit}>           
                 {/* 타이틀 */}
                 <input
+                    required
                     value={title}
                     onChange={onChangeTitle}
                     type="text"
@@ -324,6 +325,7 @@ const Home = ({ userObj }) => {
 
                 {/* HashTag */}
                 <input
+                    required
                     value={hashtag}
                     onChange={onChangeHastag}
                     type="text"
@@ -332,6 +334,7 @@ const Home = ({ userObj }) => {
 
                 {/* roomloacation */}
                 <input
+                    required
                     value={roomLocation}
                     onChange={onChangeRoomLocation}
                     type="text"
@@ -340,6 +343,7 @@ const Home = ({ userObj }) => {
 
                 {/* 부스위치 */}
                 <input
+                    required
                     value={boothLocation}
                     onChange={onChangeBoothLocation}
                     type="text"
@@ -347,7 +351,7 @@ const Home = ({ userObj }) => {
                 />
 
                 {/* intro */}
-                <input
+                <textarea
                     value={introduce}
                     onChange={onChangeIntroduce}
                     type="text"
@@ -355,7 +359,7 @@ const Home = ({ userObj }) => {
                 />
 
                 {/* activity */}
-                <input
+                <textarea
                     value={activity}
                     onChange={onChangeActivity}
                     type="text"
@@ -363,7 +367,7 @@ const Home = ({ userObj }) => {
                 />
 
                 {/* 모집 */}
-                <input
+                <textarea
                     value={recruit}
                     onChange={onChangeRecruit}
                     type="text"
@@ -371,7 +375,7 @@ const Home = ({ userObj }) => {
                 />
 
                {/* boothNotice */}
-               <input
+               <textarea
                     value={boothNotice}
                     onChange={onChangeBoothNotice}
                     type="text"
@@ -379,6 +383,7 @@ const Home = ({ userObj }) => {
                 />
                 {/* 카테고리 */}
                 <input
+                    required
                     value={category}
                     onChange={onChangeCategory}
                     type="text"
@@ -386,6 +391,7 @@ const Home = ({ userObj }) => {
                 />
                 {/* date1 */}
                 <input
+                    required
                     value={date1}
                     onChange={onChangeDate1}
                     type="text"
@@ -393,6 +399,7 @@ const Home = ({ userObj }) => {
                 />
                 {/* date2 */}
                 <input
+                    required
                     value={date2}
                     onChange={onChangeDate2}
                     type="text"
@@ -400,6 +407,7 @@ const Home = ({ userObj }) => {
                 />
                 {/* inquiry1 */}
                 <input
+                    required
                     value={inquiry1}
                     onChange={onChangeInquiry1}
                     type="text"
@@ -407,6 +415,7 @@ const Home = ({ userObj }) => {
                 />
                 {/* inquiry2 */}
                 <input
+                    required
                     value={inquiry2}
                     onChange={onChangeInquiry2}
                     type="text"
