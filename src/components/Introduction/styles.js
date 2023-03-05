@@ -116,7 +116,7 @@ const Image = styled.img`
 const ImageWrap = styled.div`
   text-align: right;
 `;
-const Card = ({ title, text, boothId, boothImage, onClick }) => {
+const Card = ({ title, text, boothId, image, onClick }) => {
   const navigate = useNavigate();
   function handleClick() {
     navigate(`/booth/${title}`);
@@ -126,10 +126,8 @@ const Card = ({ title, text, boothId, boothImage, onClick }) => {
     <Container onClick={handleClick} className="fadeIn">
       <Title>{title}</Title>
       <Text>{text}</Text>
-
-      <Image>{boothImage}</Image>
       <ImageWrap>
-        <Image src="https://velog.velcdn.com/images/seochan99/post/ced80216-dbfa-4084-9543-1c73c85bb289/image.png"></Image>
+        <Image src={image}></Image>
       </ImageWrap>
     </Container>
   );

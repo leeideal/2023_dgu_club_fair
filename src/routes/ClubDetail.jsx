@@ -1,4 +1,17 @@
-import React, { useState } from 'react';
+import { dbService, storageService } from "../fbase";
+import { ref, uploadString, getDownloadURL } from "@firebase/storage";
+
+import {
+    addDoc,
+    collection,
+    onSnapshot,
+    query,
+    orderBy,
+    getDocs,
+} from "firebase/firestore";
+import { v4 } from "uuid";
+
+import React, { useState,useEffect } from 'react';
 import { DeatailWrap } from '../components/Introduction/styles';
 import { BoothMainImage } from '../components/Introduction/styles';
 import ClubPage from '../components/Introduction/ClubPage';
@@ -9,6 +22,22 @@ import Navigation from '../components/Nav/Navigation';
 const ClubDetail = ({ onCategoryChange }) => {
   const [selectedCategory, setSelectedCategory] = useState('전체');
   const navigate = useNavigate();
+  const [nweets, setNweets] = useState([]);
+  
+
+  useEffect(() => {
+    const q = query(
+        collection(dbService, "booth"),
+    );
+    onSnapshot(q, (snapshot) => {
+        const nweetArr = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+        }));
+        setNweets(nweetArr);
+    });
+}, []);
+
   // 카드데이터
   const club = {
     id: 1,
@@ -25,6 +54,9 @@ const ClubDetail = ({ onCategoryChange }) => {
     boothLocation: '목요일 금요일 만해광장에서 만나요~~!',
     inquiry: ['010-1234-1234', '@dgulikelion'],
   };
+
+  
+
 
   return (
     <>

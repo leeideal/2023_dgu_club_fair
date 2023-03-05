@@ -2,6 +2,9 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { theme } from './theme';
 import Router from './Router';
 
+import { useState, useEffect } from 'react';
+import { authService } from './fbase';
+
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -76,11 +79,33 @@ a{
 `;
 
 function App() {
+  // 프로그램 초기화 기다리기
+  const [init, setInit] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // 로그인 정보 관리 훅스
+  const [userObj, setUserObj] = useState(null);
+
+  useEffect(() => {
+    authService.onAuthStateChanged((user) => {
+      if (user) {
+        setIsLoggedIn(user);
+        setUserObj(user);
+      } else {
+        setIsLoggedIn(false);
+      }
+      setInit(true);
+    });
+  }, []);
+
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Router />
+        {init ? (
+          <Router isLoggedIn={isLoggedIn} userObj={userObj} />
+        ) : (
+          'Initializing'
+        )}
       </ThemeProvider>
     </>
   );

@@ -1,10 +1,36 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import { dbService, storageService } from "../../fbase";
+import {
+  addDoc,
+  collection,
+  onSnapshot,
+  query,
+  orderBy,
+  getDocs,
+} from "firebase/firestore";
 import { CategoryBtn, CategoryWrap } from "./styles";
 import BoothCard from "./BoothCard";
 import { BoothCardContainer } from "./styles";
 
 const CategoryFilter = ({ onCategoryChange }) => {
   const [selectedCategory, setSelectedCategory] = useState("전체");
+
+
+  const [nweets, setNweets] = useState([]);
+
+
+  useEffect(() => {
+    const q = query(
+        collection(dbService, "booth"),
+    );
+    onSnapshot(q, (snapshot) => {
+        const nweetArr = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+        }));
+        setNweets(nweetArr);
+    });
+}, []);
 
   // 카테고리 
   const categories = [
@@ -51,60 +77,12 @@ const CategoryFilter = ({ onCategoryChange }) => {
       ],
       category:"문화·예술·공연"
     },
-    {
-      id: 3,
-      title: 'AJAX',
-      introduction: '#힙합 #공연',
-      type:1,
-      likeCnt: 100,
-      images: [
-        {
-      id: 1,
-          originFileName: '멋사.jpg',
-          serverFileName: '6fb151081add763ec08da678a9578eff',
-          storedFilePath: 'https://han.gl/pYMEv',
-        },
-      ],
-      category:"문화·예술·공연"
-    },
-    {
-      id: 4,
-      title: 'AJAX',
-      introduction: '#힙합 #공연',
-      type:1,
-      likeCnt: 100,
-      images: [
-        {
-      id: 1,
-          originFileName: '멋사.jpg',
-          serverFileName: '6fb151081add763ec08da678a9578eff',
-          storedFilePath: 'https://han.gl/pYMEv',
-        },
-      ],
-      category:"문화·예술·공연"
-    },
-    {
-      id:5,
-      title: 'AJAX',
-      introduction: '#힙합 #공연',
-      type:1,
-      likeCnt: 100,
-      images: [
-        {
-      id: 1,
-          originFileName: '멋사.jpg',
-          serverFileName: '6fb151081add763ec08da678a9578eff',
-          storedFilePath: 'https://han.gl/pYMEv',
-        },
-      ],
-      category:"문화·예술·공연"
-    },
   ]);
 
   // 카드보이게
   const visibleCards = selectedCategory === '전체'
-    ? cardsData
-    : cardsData.filter(card => card.category === selectedCategory);
+    ? nweets
+    : nweets.filter(card => card.category === selectedCategory);
   
     
   
@@ -134,14 +112,14 @@ const handleClick = (category) => {
     <BoothCardContainer>
     {visibleCards.map((boo)=>{
       return(
+        <>
         <BoothCard
           key = {boo.id}
-          boothId = {boo.id}
           title = {boo.title}
-          boothImage = {boo.images[0]}
-          intro = {boo.introduction}
-          likeCnt = {boo.likeCnt}
+          intro = {boo.hashtag}
+          image ={boo.attachmentUrl2}
         />
+        </>
       )
     })}
   </BoothCardContainer>
