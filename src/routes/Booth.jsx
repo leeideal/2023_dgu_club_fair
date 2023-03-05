@@ -14,6 +14,7 @@ import { theme } from '../theme';
 import Logo from '../assets/images/Logo.png';
 import MapCurrent from '../components/Booth/MapCurrent';
 import { LinkContext } from '../context/LinkContext';
+import { testingData10, testingData9 } from '../components/Dummy/SampleData';
 
 const DateSection = styled.section`
   display: flex;
@@ -48,92 +49,22 @@ const SelectButton = styled.button`
   }
 `;
 
-const clubData = [
-  {
-    id: 1,
-    mapSection: 3,
-    name: '멋쟁이사자처럼',
-  },
-  {
-    id: 2,
-    mapSection: 2,
-    name: '동그라미',
-  },
-  {
-    id: 3,
-    mapSection: 4,
-    name: '아리랑',
-  },
-  {
-    id: 4,
-    mapSection: 5,
-    name: '페인터즈',
-  },
-  {
-    id: 5,
-    mapSection: 1,
-    name: 'E.L.F',
-  },
-  {
-    id: 6,
-    mapSection: 2,
-    name: '음샘',
-  },
-  {
-    id: 7,
-    mapSection: 6,
-    name: '디콕',
-  },
-  {
-    id: 8,
-    mapSection: 7,
-    name: '명궁',
-  },
-  {
-    id: 9,
-    mapSection: 5,
-    name: '동굴탐험연구회',
-  },
-  {
-    id: 10,
-    mapSection: 4,
-    name: '수중탐험연구회',
-  },
-  {
-    id: 11,
-    mapSection: 3,
-    name: 'LAE',
-  },
-  {
-    id: 12,
-    mapSection: 5,
-    name: '목멱성',
-  },
-  {
-    id: 13,
-    mapSection: 7,
-    name: '한글학교 하람',
-  },
-  {
-    id: 14,
-    mapSection: 2,
-    name: 'FC 엘레펜테',
-  },
-  {
-    id: 15,
-    mapSection: 1,
-    name: '만화얼',
-  },
+const clubList9 = [
+  testingData9?.map((club) => (
+    <ClubListComponent key={club.id} id={club.id} name={club.name} />
+  )),
 ];
 
-const clubList = [
-  clubData?.map((club) => (
+const clubList10 = [
+  testingData10?.map((club) => (
     <ClubListComponent key={club.id} id={club.id} name={club.name} />
   )),
 ];
 
 const Booth = () => {
   const navigate = useNavigate();
+  const today = new Date();
+  const day = today.getDate();
   const [dateCurrent, setDateCurrent] = useState(true);
   const [toggle, setToggle] = useState(true);
   const { idParams } = useContext(LinkContext);
@@ -299,7 +230,7 @@ const Booth = () => {
             <br />
             <br />
             <Grid item sx={{ position: 'relative', height: '100%' }}>
-              {[...clubList]}
+              {dateCurrent ? [...clubList9] : [...clubList10]}
             </Grid>
           </Grid>
         </Grid>
