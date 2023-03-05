@@ -156,7 +156,7 @@ const About = () => {
       <br></br>
       <br></br>
       <br></br>
-      <Collaboration>
+      <Collaboration style={{marginBottom:'40px'}}>
         Collaboration
         <br></br>
         <br></br>
