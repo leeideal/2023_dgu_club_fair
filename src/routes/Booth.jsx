@@ -3,19 +3,16 @@ import { Container, Grid, Typography } from '@mui/material/';
 import MainButton from '../components/Main/MainButton';
 import { useNavigate } from 'react-router-dom';
 import ClubListComponent from '../components/Booth/ClubListComponent';
-import BoothMap from '../assets/images/boothMap0.png';
-import {
-  ImageSection,
-  LogoButton,
-  SelectSection,
-} from '../components/Booth/BoothStyled';
 import styled from 'styled-components';
 import { theme } from '../theme';
 import Logo from '../assets/images/Logo.png';
 import MapCurrent from '../components/Booth/MapCurrent';
 import { LinkContext } from '../context/LinkContext';
 import { testingData10, testingData9 } from '../components/Dummy/SampleData';
+import TimeTable from '../components/Booth/TimeTable';
+import { LogoButton, SelectSection } from '../components/Booth/BoothStyled';
 
+// Props Styled-----------------------------------------------------------
 const DateSection = styled.section`
   display: flex;
   justify-content: center;
@@ -49,12 +46,12 @@ const SelectButton = styled.button`
   }
 `;
 
+// Dummy Data-------------------------------------------------------------
 const clubList9 = [
   testingData9?.map((club) => (
     <ClubListComponent key={club.id} id={club.id} name={club.name} />
   )),
 ];
-
 const clubList10 = [
   testingData10?.map((club) => (
     <ClubListComponent key={club.id} id={club.id} name={club.name} />
@@ -62,9 +59,8 @@ const clubList10 = [
 ];
 
 const Booth = () => {
+  // Hooks 관리-----------------------------------------------------------
   const navigate = useNavigate();
-  const today = new Date();
-  const day = today.getDate();
   const [dateCurrent, setDateCurrent] = useState(true);
   const [toggle, setToggle] = useState(true);
   const { idParams } = useContext(LinkContext);
@@ -175,64 +171,79 @@ const Booth = () => {
               </SelectButton>
             </SelectSection>
           </Grid>
-          <Grid item xs={12} md={6}>
-            {toggle ? <MapCurrent idParams={idParams} /> : 'loading...'}
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            md={4.5}
-            sx={{
-              margin: 4,
-              height: '60vh',
-              overflowY: 'auto',
-              scrollbarColor: 'red',
-              '&:-webkitScrollbar': {
-                width: '8px',
-                height: '8px',
-                borderRadius: '6px',
-                background: 'rgba(255, 255, 255, 0.4)',
-              },
-              '&:-webkitScrollbarThumb': {
-                background: 'rgba(0, 0, 0, 0.3)',
-                borderRadius: '6px',
-              },
-            }}
-          >
+          {toggle ? (
+            <Grid item xs={12} md={6}>
+              <MapCurrent idParams={idParams} />
+            </Grid>
+          ) : (
+            ''
+          )}
+          {toggle ? (
             <Grid
               item
+              xs={12}
+              md={4.5}
               sx={{
-                display: 'flex',
-                position: 'relative',
+                margin: 4,
+                height: '60vh',
+                overflowY: 'auto',
+                scrollbarColor: 'red',
+                '&:-webkitScrollbar': {
+                  width: '8px',
+                  height: '8px',
+                  borderRadius: '6px',
+                  background: 'rgba(255, 255, 255, 0.4)',
+                },
+                '&:-webkitScrollbarThumb': {
+                  background: 'rgba(0, 0, 0, 0.3)',
+                  borderRadius: '6px',
+                },
               }}
             >
-              <Typography
+              <Grid
+                item
                 sx={{
-                  position: 'absolute',
-                  left: '1%',
-                  fontFamily: 'insungitCutelivelyjisu',
+                  display: 'flex',
+                  position: 'relative',
                 }}
               >
-                부스번호
-              </Typography>
-              <Typography
-                sx={{
-                  position: 'absolute',
-                  left: '50%',
-                  top: '50%',
-                  transform: 'translate(-50%)',
-                  fontFamily: 'insungitCutelivelyjisu',
-                }}
-              >
-                동아리 명
-              </Typography>
+                <Typography
+                  sx={{
+                    position: 'absolute',
+                    left: '1%',
+                    fontFamily: 'insungitCutelivelyjisu',
+                  }}
+                >
+                  부스번호
+                </Typography>
+                <Typography
+                  sx={{
+                    position: 'absolute',
+                    left: '50%',
+                    top: '50%',
+                    transform: 'translate(-50%)',
+                    fontFamily: 'insungitCutelivelyjisu',
+                  }}
+                >
+                  동아리 명
+                </Typography>
+              </Grid>
+              <br />
+              <br />
+              <Grid item sx={{ position: 'relative', height: '100%' }}>
+                {dateCurrent ? [...clubList9] : [...clubList10]}
+              </Grid>
             </Grid>
-            <br />
-            <br />
-            <Grid item sx={{ position: 'relative', height: '100%' }}>
-              {dateCurrent ? [...clubList9] : [...clubList10]}
+          ) : (
+            ''
+          )}
+          {!toggle ? (
+            <Grid item xs={12}>
+              <TimeTable dateCurrent={dateCurrent}></TimeTable>
             </Grid>
-          </Grid>
+          ) : (
+            ''
+          )}
         </Grid>
       </Container>
     </>
