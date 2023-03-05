@@ -7,8 +7,7 @@ const BoothCard = ({
     boothId,
     title,
     intro,
-    likeCnt,
-    boothImage
+    image
 
 }) => {
   const handleButtonClick = () => {
@@ -20,7 +19,7 @@ const BoothCard = ({
     <Card
       title={title}
       text={intro}
-      image={boothImage}
+      image={image}
       onClick={handleButtonClick}
     />
     </>
