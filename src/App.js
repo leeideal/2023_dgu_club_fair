@@ -1,9 +1,13 @@
-import { ThemeProvider, createGlobalStyle } from "styled-components";
-import { theme } from "./theme";
-import Router from "./Router";
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { theme } from './theme';
+import Router from './Router';
+
+import Loading from './components/Loading';
+import { useState, useEffect } from 'react';
+import { authService } from './fbase';
 
 const GlobalStyle = createGlobalStyle`
- html, body, div, span, applet, object, iframe,
+html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -32,8 +36,14 @@ footer, header, hgroup, main, menu, nav, section {
 *[hidden] {
     display: none;
 }
+@font-face {
+  font-family: 'insungitCutelivelyjisu';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/insungitCutelivelyjisu.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
 body {
-  line-height: 1;
+  line-height: 1;  
 }
 menu, ol, ul {
   list-style: none;
@@ -53,6 +63,8 @@ table {
 // 추가1. 모든 태그에 border-box 적용 (테두리와 안쪽 여백의 크기도 요소의 크기로 고려)
 * {
     box-sizing: border-box;
+    font-family: 'insungitCutelivelyjisu';
+
 }
 // 추가2. 가져온 폰트를 body태그 안에 있으면 다 적용되게 해줌 + theme 적용
 body{
@@ -68,11 +80,33 @@ a{
 `;
 
 function App() {
+  // 프로그램 초기화 기다리기
+  const [init, setInit] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // 로그인 정보 관리 훅스
+  const [userObj, setUserObj] = useState(null);
+
+  useEffect(() => {
+    authService.onAuthStateChanged((user) => {
+      if (user) {
+        setIsLoggedIn(user);
+        setUserObj(user);
+      } else {
+        setIsLoggedIn(false);
+      }
+      setInit(true);
+    });
+  }, []);
+
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Router />
+        {init ? (
+          <Router isLoggedIn={isLoggedIn} userObj={userObj} />
+        ) : (
+          <Loading />
+        )}
       </ThemeProvider>
     </>
   );
