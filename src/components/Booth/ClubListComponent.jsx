@@ -1,19 +1,6 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { LinkContext } from '../../context/LinkContext';
-
-const ListSection = styled.section`
-  width: 100%;
-  height: 40px;
-  border: 1px solid #f4eee8;
-  border-radius: 50px;
-  position: relative;
-  cursor: pointer;
-  transition: 0.1s;
-  &:hover {
-    background-color: #ffeded;
-  }
-`;
 
 const IdSection = styled.span`
   position: absolute;
@@ -36,11 +23,28 @@ const NameSection = styled.span`
   transform: translate(-50%, -50%);
 `;
 
+const ListSection = styled.section`
+  width: 100%;
+  height: 40px;
+  border: 1px solid #f4eee8;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.1s;
+  &:hover {
+    background-color: #ffeded;
+  }
+  &:hover ${IdSection} {
+    background-color: #ff9b9b;
+  }
+`;
+
 const ClubListComponent = ({ id, name }) => {
   const { setIdParams } = useContext(LinkContext);
   return (
     <>
       <ListSection
+        className="fadeIn"
         onClick={() => {
           setIdParams(id);
         }}

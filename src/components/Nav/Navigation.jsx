@@ -31,19 +31,21 @@ const Navigation = () => {
         <MainButton
           pageCurrent={pageCurrent.pathname}
           location="/introduction"
-          buttonName="동아리 소개"
+          buttonName1="동아리"
+          buttonName2="소개"
           onClick={() => navigate('/introduction')}
         ></MainButton>
         <MainButton
           pageCurrent={pageCurrent.pathname}
           location="/booth"
-          buttonName="동아리 부스"
+          buttonName1="동아리"
+          buttonName2="부스"
           onClick={() => navigate('/booth')}
         ></MainButton>
         <MainButton
           pageCurrent={pageCurrent.pathname}
           location="/about"
-          buttonName="ABOUT"
+          buttonName1="ABOUT"
           onClick={() => navigate('/about')}
         ></MainButton>
       </Grid>

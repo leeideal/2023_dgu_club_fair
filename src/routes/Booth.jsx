@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Container, Grid, Typography } from '@mui/material/';
 import { theme } from '../theme';
 import styled from 'styled-components';
@@ -59,14 +58,13 @@ const clubList10 = [
 
 const Booth = () => {
   // Hooks 관리-----------------------------------------------------------
-  const navigate = useNavigate();
   const [dateCurrent, setDateCurrent] = useState(true);
   const [toggle, setToggle] = useState(true);
   const { idParams } = useContext(LinkContext);
 
   return (
     <>
-      <Container component="main">
+      <Container component="main" className="fadeIn">
         <Grid
           container
           sx={{
@@ -82,7 +80,6 @@ const Booth = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              minHeight: '5vh',
             }}
           >
             <DateSection
@@ -122,7 +119,7 @@ const Booth = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              minHeight: '13vh',
+              minHeight: '15vh',
             }}
           >
             <SelectSection>
@@ -154,18 +151,16 @@ const Booth = () => {
               md={4.5}
               sx={{
                 margin: 4,
-                height: '60vh',
+                height: 'auto',
                 overflowY: 'auto',
-                scrollbarColor: 'red',
-                '&:-webkitScrollbar': {
-                  width: '8px',
-                  height: '8px',
-                  borderRadius: '6px',
-                  background: 'rgba(255, 255, 255, 0.4)',
+                '&::-webkit-scrollbar': {
+                  width: '10px',
+                  borderRadius: '5px',
+                  background: '#f4f0ec',
                 },
-                '&:-webkitScrollbarThumb': {
-                  background: 'rgba(0, 0, 0, 0.3)',
-                  borderRadius: '6px',
+                '&::-webkit-scrollbar-thumb': {
+                  background: '#603900',
+                  borderRadius: '5px',
                 },
               }}
             >
