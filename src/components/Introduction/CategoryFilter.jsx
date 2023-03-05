@@ -115,6 +115,7 @@ const handleClick = (category) => {
         <>
         <BoothCard
           key = {boo.id}
+          boothId = {boo.id}
           title = {boo.title}
           intro = {boo.hashtag}
           image ={boo.attachmentUrl2}
