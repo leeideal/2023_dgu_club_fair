@@ -56,6 +56,13 @@ const Title = styled.div`
       font-size: 2rem;
     }
   }
+  h4{
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    @media (max-width: 500px) {
+      font-size: 1.6rem;
+    }
+  }
   animation: ${titleAnimation} 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 `
 
@@ -241,6 +248,7 @@ const Main = () => {
       </Box>
       <Header>
         <Title>
+          <h4>동국대학교</h4>
           <h1>동아리 박람회</h1>
           <h6>톺아보기</h6>
         </Title>
