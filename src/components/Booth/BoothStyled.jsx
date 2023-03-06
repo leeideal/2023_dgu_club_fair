@@ -125,6 +125,7 @@ export const BoothPerfoDetailBox = styled.div`
   justify-content: center;
   margin-bottom: 13px;
   display: flex;
+  cursor: pointer;
 `;
 
 export const BoothPerforNo = styled.div`

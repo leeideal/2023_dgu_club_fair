@@ -21,6 +21,7 @@ const NameSection = styled.span`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  font-size: 0.8rem;
 `;
 
 const ListSection = styled.section`

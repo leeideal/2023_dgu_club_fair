@@ -17,15 +17,17 @@ const DateSection = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: ${(props) => (props.dateCurrent ? '#ffa800' : 'black')};
+  color: ${(props) =>
+    props.dateCurrent ? `${theme.primaryBoldColor}` : 'black'};
+  background-color: ${(props) =>
+    props.dateCurrent ? `${theme.secondaryColor}` : 'transparent'};
   width: 70px;
   height: 70px;
   border-radius: 50%;
   cursor: pointer;
   transition: 0.2s;
   &:hover {
-    color: ${theme.pointColor};
-    background-color: ${theme.secondaryColor};
+    color: ${theme.primaryBoldColor};
   }
 `;
 
@@ -97,7 +99,7 @@ const Booth = () => {
           >
             <DateSection
               dateCurrent={dateCurrent}
-              onClick={() => setDateCurrent(!dateCurrent)}
+              onClick={() => setDateCurrent(true)}
             >
               <Typography
                 sx={{
@@ -111,7 +113,7 @@ const Booth = () => {
             </DateSection>
             <DateSection
               dateCurrent={!dateCurrent}
-              onClick={() => setDateCurrent(!dateCurrent)}
+              onClick={() => setDateCurrent(false)}
             >
               <Typography
                 sx={{
