@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import React from 'react';
-import NavHover from '../../assets/images/NavHover.png';
+import NavHover from '../../assets/images/Booth/NavHover.png';
 
 const NavButton = styled.button`
   width: 80px;

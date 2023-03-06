@@ -1,11 +1,10 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
 import About from './routes/About';
 import Booth from './routes/Booth';
 import Main from './routes/Main';
 import Home from './routes/Home';
 import Auth from './routes/Auth';
 import ClubDetail from './routes/ClubDetail';
-import BoothAdd from './routes/BoothAdd';
 import Introduction from './routes/Introduction';
 import { LinkContext } from './context/LinkContext';
 import { useState } from 'react';
@@ -34,7 +33,6 @@ function Router({ isLoggedIn, userObj }) {
           <Route path="/booth" element={<Booth />} />
           <Route path="/booth/:str" element={<ClubDetail />} />
           <Route path="/introduction" element={<Introduction />} />
-          <Route path="/boothAdd" element={<BoothAdd />} />
         </Routes>
       </LinkContext.Provider>
     </BrowserRouter>

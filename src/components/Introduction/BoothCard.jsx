@@ -1,28 +1,18 @@
-import { margin } from "@mui/system";
-import React from "react";
-import Card from "./styles";
+import React from 'react';
+import Card from './styles';
 
-const BoothCard = ({
-    title,
-    intro,
-    image
-}) => {
-  const handleButtonClick = () => {
-  };
+const BoothCard = ({ title, intro, image }) => {
+  const handleButtonClick = () => {};
 
   return (
-
     <>
-    <Card
-      title={title}
-      text={intro}
-      image={image}
-      onClick={handleButtonClick}
-    />
+      <Card
+        title={title}
+        text={intro}
+        image={image}
+        onClick={handleButtonClick}
+      />
     </>
-
-
-    
   );
 };
 

@@ -16,6 +16,7 @@ const CTAButton = styled.button`
   position: fixed;
   bottom: 24px;
   left: 50%;
+  cursor: pointer;
   transform: translateX(-50%);
   @media (max-width: 1200px) {
     font-size: 12px;

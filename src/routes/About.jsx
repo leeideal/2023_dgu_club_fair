@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Navigation from '../components/Nav/Nav';
 import '../components/About/style.css';
-
 import SiteLogo from '../assets/images/About/SiteLogo.svg';
 import DGULogo from '../assets/images/About/RoundDGULogo.svg';
 import ButtonToSite from '../assets/images/About/ButtonToSite.svg';
@@ -26,6 +24,7 @@ const CTAButton = styled.button`
   position: fixed;
   bottom: 24px;
   left: 50%;
+  cursor: pointer;
   transform: translateX(-50%);
   @media (max-width: 1200px) {
     font-size: 12px;
@@ -33,6 +32,7 @@ const CTAButton = styled.button`
     padding: 14px 40px;
   }
 `;
+
 const AboutPage = styled.div`
   padding-top: 20px;
   font-style: normal;
@@ -43,6 +43,7 @@ const AboutPage = styled.div`
   letter-spacing: 0.1em;
   color: #aa9887;
 `;
+
 const AboutUs = styled.div`
   margin: 20px 0 20px 0;
   display: flex;
@@ -57,6 +58,7 @@ const AboutUs = styled.div`
   line-height: 15px;
   letter-spacing: 0.1em;
 `;
+
 const AboutUsText = styled.p`
   display: flex;
   flex-direction: column;
@@ -67,6 +69,7 @@ const AboutUsText = styled.p`
   line-height: 15px;
   letter-spacing: 0.1em;
 `;
+
 const DGULikeLion = styled.div`
   padding-right: 15px;
   font-style: normal;
@@ -76,21 +79,25 @@ const DGULikeLion = styled.div`
   letter-spacing: 0.1em;
   color: #000000;
 `;
+
 const SubText = styled.p`
   padding: 10px 0 10px 0;
   color: #aa9887;
   font-size: 10px;
 `;
+
 const Collaboration = styled.div`
   text-align: center;
   font-size: 15px;
 `;
+
 const CollaboImage = styled.div`
   margin: 10px 0 10px 0;
   display: flex;
   font-size: 10px;
   justify-content: center;
 `;
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -105,7 +112,7 @@ const About = () => {
   };
   return (
     <>
-      <Wrapper>
+      <Wrapper className="fadeIn">
         <AboutPage>
           <SubText>
             <img src={SiteLogo} alt="" />
@@ -146,7 +153,6 @@ const About = () => {
               <img src={DGULogo} alt="" />
             </div>
           </DGULikeLion>
-
           <AboutUsText>
             멋쟁이사자처럼은 누구나 자신의
             <br />
