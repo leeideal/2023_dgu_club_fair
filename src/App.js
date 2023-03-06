@@ -1,7 +1,6 @@
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { theme } from './theme';
 import Router from './Router';
-
 import Loading from './components/Loading';
 import { useState, useEffect } from 'react';
 import { authService } from './fbase';

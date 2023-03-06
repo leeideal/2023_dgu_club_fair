@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Box } from '@mui/material';
-import Navigation from '../components/Nav/Navigation';
+import Navigation from '../components/Nav/Nav';
 import styled, { keyframes } from 'styled-components';
 import down from '../assets/images/Main/down.png';
 import img_00 from '../assets/images/Main/01.png';
@@ -239,16 +239,6 @@ const Main = () => {
 
   return (
     <>
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'flex-start',
-          width: '100vw',
-        }}
-      >
-        <Navigation />
-      </Box>
       <Header>
         <Title>
           <h4>동국대학교</h4>
