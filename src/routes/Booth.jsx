@@ -8,7 +8,7 @@ import MapCurrent from '../components/Booth/MapCurrent';
 import { testingData10, testingData9 } from '../components/Dummy/SampleData';
 import TimeTable from '../components/Booth/TimeTable';
 import { SelectSection } from '../components/Booth/BoothStyled';
-import Navigation from '../components/Nav/Navigation';
+import Navigation from '../components/Nav/Nav';
 import { dbService } from '../fbase';
 import { collection, onSnapshot, query } from 'firebase/firestore';
 
@@ -55,6 +55,8 @@ const Booth = () => {
   const { idParams } = useContext(LinkContext);
   const [data9, setData9] = useState([]);
   const [data10, setData10] = useState([]);
+
+  // 렌더링---------------------------------------------------------------
   useEffect(() => {
     const q = query(collection(dbService, 'booth'));
     onSnapshot(q, (snapshot) => {
@@ -66,6 +68,7 @@ const Booth = () => {
       setData10(boothData.filter((e) => e.boothLocation.includes('10일')));
     });
   }, []);
+  // 데이터 처리----------------------------------------------------------
   const clubList9 = [
     data9?.map((club) => (
       <ClubListComponent key={club.id} id={club.map9} name={club.title} />
@@ -79,15 +82,15 @@ const Booth = () => {
 
   return (
     <>
-      <Container component="main" className="fadeIn">
+      <Container component="main">
         <Grid
+          className="fadeIn"
           container
           sx={{
             fontFamily: 'insungitCutelivelyjisu',
             justifyContent: 'space-around',
           }}
         >
-          <Navigation />
           <Grid
             item
             xs={12}

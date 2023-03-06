@@ -1,16 +1,10 @@
 import React, { useState } from 'react';
-import { BoothCardContainer } from '../components/Introduction/styles';
-import { useNavigate } from 'react-router-dom';
 import CategoryFilter from '../components/Introduction/CategoryFilter';
-import BoothCard from '../components/Introduction/BoothCard';
-
-import { Box } from '@mui/material';
-
-import Navigation from '../components/Nav/Navigation';
+import Navigation from '../components/Nav/Nav';
 import styled from 'styled-components';
 const CTAButton = styled.button`
-  background-color: #FFD98E;
-  color: #8D5500;
+  background-color: #ffd98e;
+  color: #8d5500;
   border: none;
   border-radius: 50px;
   padding: 16px 100px;
@@ -27,35 +21,21 @@ const CTAButton = styled.button`
     font-size: 12px;
     width: 70%;
     padding: 14px 40px;
-}
+  }
 `;
 
-
 const Introduction = () => {
-  
-  
   const handleOnClick = () => {
     window.open('https://dgu-club-fair.netlify.app/', '_blank');
-
-  }
+  };
 
   return (
-    <div style={{marginBottom:"100px"}}>
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          minHeight: '10vh',
-        }}
-      >
-        <Navigation />
-      </Box>
+    <>
       <CategoryFilter />
       <CTAButton onClick={handleOnClick}>
-      동아리 추천 테스트 하러 가기
+        동아리 추천 테스트 하러 가기
       </CTAButton>
-    </div>
+    </>
   );
 };
 

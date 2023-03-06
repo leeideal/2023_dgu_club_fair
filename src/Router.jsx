@@ -9,11 +9,13 @@ import BoothAdd from './routes/BoothAdd';
 import Introduction from './routes/Introduction';
 import { LinkContext } from './context/LinkContext';
 import { useState } from 'react';
+import Nav from './components/Nav/Nav';
 
 function Router({ isLoggedIn, userObj }) {
   const [idParams, setIdParams] = useState(0);
   return (
     <BrowserRouter>
+      <Nav />
       <LinkContext.Provider value={{ idParams, setIdParams }}>
         <Routes>
           {isLoggedIn ? (

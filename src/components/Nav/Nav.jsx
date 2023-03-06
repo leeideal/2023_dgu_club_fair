@@ -5,7 +5,7 @@ import { LogoButton } from '../Booth/BoothStyled';
 import MainButton from '../Main/MainButton';
 import Logo from '../../assets/images/Logo.png';
 
-const Navigation = () => {
+const Nav = () => {
   const navigate = useNavigate();
   const pageCurrent = useLocation();
 
@@ -20,6 +20,8 @@ const Navigation = () => {
           justifyContent: 'center',
           alignItems: 'center',
           minHeight: '10vh',
+          marginTop: 3,
+          marginBottom: 3,
         }}
       >
         <LogoButton
@@ -53,4 +55,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default Nav;
