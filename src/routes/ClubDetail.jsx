@@ -152,16 +152,6 @@ const ClubDetail = ({ onCategoryChange }) => {
 
   return (
     <>
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          minHeight: '10vh',
-        }}
-      >
-        <Navigation />
-      </Box>
       <DeatailWrap>
         <div>
           {documents.map((club) => (
@@ -169,7 +159,6 @@ const ClubDetail = ({ onCategoryChange }) => {
               <ClubPageWrapper>
                 {/* 동아리 단체사진 */}
                 <ClubImage src={club.attachmentUrl} alt="Club Image" />
-
                 <DesWrapper>
                   <ClubHeader>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
