@@ -139,13 +139,13 @@ const Booth = () => {
           >
             <SelectSection>
               <SelectButton
-                onClick={() => setToggle(!toggle)}
+                onClick={() => setToggle(true)}
                 toggleCurrent={toggle}
               >
                 동아리 부스
               </SelectButton>
               <SelectButton
-                onClick={() => setToggle(!toggle)}
+                onClick={() => setToggle(false)}
                 toggleCurrent={!toggle}
               >
                 공연 타임테이블
