@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Container, Grid, Typography } from '@mui/material/';
 import { theme } from '../theme';
 import styled from 'styled-components';
@@ -9,6 +9,8 @@ import { testingData10, testingData9 } from '../components/Dummy/SampleData';
 import TimeTable from '../components/Booth/TimeTable';
 import { SelectSection } from '../components/Booth/BoothStyled';
 import Navigation from '../components/Nav/Navigation';
+import { dbService } from '../fbase';
+import { collection, onSnapshot, query } from 'firebase/firestore';
 
 // Props Styled-----------------------------------------------------------
 const DateSection = styled.section`
@@ -44,23 +46,34 @@ const SelectButton = styled.button`
   }
 `;
 
-// Dummy Data-------------------------------------------------------------
-const clubList9 = [
-  testingData9?.map((club) => (
-    <ClubListComponent key={club.id} id={club.id} name={club.name} />
-  )),
-];
-const clubList10 = [
-  testingData10?.map((club) => (
-    <ClubListComponent key={club.id} id={club.id} name={club.name} />
-  )),
-];
-
 const Booth = () => {
   // Hooks 관리-----------------------------------------------------------
   const [dateCurrent, setDateCurrent] = useState(true);
   const [toggle, setToggle] = useState(true);
   const { idParams } = useContext(LinkContext);
+  const [data9, setData9] = useState([]);
+  const [data10, setData10] = useState([]);
+  useEffect(() => {
+    const q = query(collection(dbService, 'booth'));
+    onSnapshot(q, (snapshot) => {
+      const boothData = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setData9(boothData.filter((e) => e.boothLocation.includes('9일')));
+      setData10(boothData.filter((e) => e.boothLocation.includes('10일')));
+    });
+  }, []);
+  const clubList9 = [
+    data9?.map((club) => (
+      <ClubListComponent key={club.id} id={club.map9} name={club.title} />
+    )),
+  ];
+  const clubList10 = [
+    data10?.map((club) => (
+      <ClubListComponent key={club.id} id={club.map10} name={club.title} />
+    )),
+  ];
 
   return (
     <>
@@ -151,7 +164,7 @@ const Booth = () => {
               md={4.5}
               sx={{
                 margin: 4,
-                height: 'auto',
+                height: '40vh',
                 overflowY: 'auto',
                 '&::-webkit-scrollbar': {
                   width: '10px',
@@ -176,6 +189,7 @@ const Booth = () => {
                     position: 'absolute',
                     left: '1%',
                     fontFamily: 'insungitCutelivelyjisu',
+                    color: '#AA9887',
                   }}
                 >
                   부스번호
@@ -187,6 +201,7 @@ const Booth = () => {
                     top: '50%',
                     transform: 'translate(-50%)',
                     fontFamily: 'insungitCutelivelyjisu',
+                    color: '#AA9887',
                   }}
                 >
                   동아리 명
@@ -194,7 +209,14 @@ const Booth = () => {
               </Grid>
               <br />
               <br />
-              <Grid item sx={{ position: 'relative', height: '100%' }}>
+              <Grid
+                item
+                sx={{
+                  position: 'relative',
+                  height: '100%',
+                  color: `${theme.pointColor}`,
+                }}
+              >
                 {dateCurrent ? [...clubList9] : [...clubList10]}
               </Grid>
             </Grid>
