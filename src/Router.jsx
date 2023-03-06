@@ -17,17 +17,6 @@ function Router({ isLoggedIn, userObj }) {
       <Nav />
       <LinkContext.Provider value={{ idParams, setIdParams }}>
         <Routes>
-          {isLoggedIn ? (
-            <>
-              <Route
-                exact
-                path="/submit"
-                element={<Home userObj={userObj} />}
-              />
-            </>
-          ) : (
-            <Route exact path="/submit" element={<Auth />} />
-          )}
           <Route path="/" element={<Main />} />
           <Route path="/about" element={<About />} />
           <Route path="/booth" element={<Booth />} />
