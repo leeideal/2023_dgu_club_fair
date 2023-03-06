@@ -5,12 +5,11 @@ import styled from 'styled-components';
 import { LinkContext } from '../context/LinkContext';
 import ClubListComponent from '../components/Booth/ClubListComponent';
 import MapCurrent from '../components/Booth/MapCurrent';
-import { testingData10, testingData9 } from '../components/Dummy/SampleData';
 import TimeTable from '../components/Booth/TimeTable';
 import { SelectSection } from '../components/Booth/BoothStyled';
-import Navigation from '../components/Nav/Nav';
 import { dbService } from '../fbase';
 import { collection, onSnapshot, query } from 'firebase/firestore';
+// import Cursor from '../assets/images/'
 
 // Props Styled-----------------------------------------------------------
 const DateSection = styled.section`
@@ -68,6 +67,7 @@ const Booth = () => {
       setData10(boothData.filter((e) => e.boothLocation.includes('10일')));
     });
   }, []);
+
   // 데이터 처리----------------------------------------------------------
   const clubList9 = [
     data9?.map((club) => (

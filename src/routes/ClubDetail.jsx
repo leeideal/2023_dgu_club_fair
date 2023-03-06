@@ -116,18 +116,16 @@ const ClubDetail = ({ onCategoryChange }) => {
   const location = useLocation();
   const decodedUrl = decodeURI(location.pathname);
   var boothName = decodedUrl.substring(7);
-  // console.log(boothName)
 
   useEffect(() => {
     const q = query(collection(dbService, 'booth'));
 
     onSnapshot(q, (snapshot) => {
-      const nweetArr = snapshot.docs.map((doc) => ({
+      const clubData = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
-
-      setNweets(nweetArr);
+      setNweets(clubData);
     });
   }, []);
 
@@ -146,7 +144,6 @@ const ClubDetail = ({ onCategoryChange }) => {
       }));
       setDocuments(docs);
     }
-
     fetchDocuments();
   }, []);
 

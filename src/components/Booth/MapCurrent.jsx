@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import boothMap0 from '../../assets/images/boothMap0.png';
-import boothMap1 from '../../assets/images/boothMap1.png';
-import boothMap2 from '../../assets/images/boothMap2.png';
-import boothMap3 from '../../assets/images/boothMap3.png';
-import boothMap4 from '../../assets/images/boothMap4.png';
-import boothMap5 from '../../assets/images/boothMap5.png';
-import boothMap6 from '../../assets/images/boothMap6.png';
-import boothMap7 from '../../assets/images/boothMap7.png';
+import boothMap0 from '../../assets/images/Booth/boothMap0.png';
+import boothMap1 from '../../assets/images/Booth/boothMap1.png';
+import boothMap2 from '../../assets/images/Booth/boothMap2.png';
+import boothMap3 from '../../assets/images/Booth/boothMap3.png';
+import boothMap4 from '../../assets/images/Booth/boothMap4.png';
+import boothMap5 from '../../assets/images/Booth/boothMap5.png';
+import boothMap6 from '../../assets/images/Booth/boothMap6.png';
+import boothMap7 from '../../assets/images/Booth/boothMap7.png';
 
 const ImageSection = styled.img`
   width: 100%;

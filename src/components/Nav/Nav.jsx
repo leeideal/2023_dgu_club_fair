@@ -3,7 +3,7 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { LogoButton } from '../Booth/BoothStyled';
 import MainButton from '../Main/MainButton';
-import Logo from '../../assets/images/Logo.png';
+import Logo from '../../assets/images/Booth/Logo.png';
 
 const Nav = () => {
   const navigate = useNavigate();
