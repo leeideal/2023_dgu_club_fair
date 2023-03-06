@@ -12,6 +12,27 @@ import DonghangInstaLogo from '../assets/images/About/DonghangInstaLogo.svg';
 import AllimiInstaLogo from '../assets/images/About/AllimiInstaLogo.svg';
 import DGUInstaLogo from '../assets/images/About/DGUInstaLogo.svg';
 
+const CTAButton = styled.button`
+  background-color: #FFD98E;
+  color: #8D5500;
+  border: none;
+  border-radius: 50px;
+  padding: 16px 100px;
+  width: 40%;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  @media (max-width: 1200px) {
+    font-size: 12px;
+    width: 70%;
+    padding: 14px 40px;
+}
+`;
 const AboutPage = styled.div`
   padding-top: 20px;
   font-style: normal;
@@ -80,6 +101,11 @@ const Wrapper = styled.div`
 
 
 const About = () => {
+
+  const handleOnClick = () => {
+    window.open('https://dgu-club-fair.netlify.app/', '_blank');
+
+  }
   return (
     <>
     <Navigation />
@@ -191,6 +217,11 @@ const About = () => {
         </CollaboImage>
       </Collaboration>
     </Wrapper>
+
+    <CTAButton onClick={handleOnClick}>
+      동아리 추천 테스트 하러 가기
+    </CTAButton>
+
 </>
 );
 };
