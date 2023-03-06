@@ -306,11 +306,11 @@ const Main = () => {
           <Step className="step">
             <p>
               김토끼 : 친구 어떻게 사귀지??<br></br>
-              고끼리 : 이번학기는 어떤 활동을 하지?
+              고끼리 : 이번 학기는 어떤 활동을 하지?
             </p>
           </Step>
           <Step className="step">
-            <p>(전단지 바람에 날려옴)</p>
+            <p>(전단지 바람에 날려 옴)</p>
           </Step>
           <Step className="step">
             <p>동아리 박람회...?</p>
@@ -324,7 +324,7 @@ const Main = () => {
           <Step className="step">
             <p>
               김토끼와 고끼리.<br></br>
-              동아리 박람회에 가게되는데...
+              동아리 박람회에 가게 되는데...
             </p>
           </Step>
         </Text>
