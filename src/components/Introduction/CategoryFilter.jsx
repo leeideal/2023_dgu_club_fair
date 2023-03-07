@@ -29,7 +29,6 @@ const CategoryFilter = ({ onCategoryChange }) => {
     '봉사·사회활동',
     '학술·교양',
     '창업·취업',
-    '어학',
     '체육',
     '친목',
   ];
