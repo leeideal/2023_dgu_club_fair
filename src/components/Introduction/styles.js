@@ -139,7 +139,7 @@ const Card = ({ title, text, image, onClick }) => {
       <Title>{shortText}</Title>
       <Text>{text}</Text>
       <ImageWrap>
-        <Image src={image}></Image>
+        <Image src={image} loading="lazy"></Image>
       </ImageWrap>
     </Container>
   );
