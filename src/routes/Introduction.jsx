@@ -25,18 +25,25 @@ const CTAButton = styled.button`
   }
 `;
 
+const IntrodcutionWrapper = styled.div`
+  margin-bottom: 100px;
+  @media (max-width: 1200px) {
+    margin-bottom: 60px;
+  }
+`
+
 const Introduction = () => {
   const handleOnClick = () => {
     window.open('https://dgu-club-fair.netlify.app/', '_blank');
   };
 
   return (
-    <>
+    <IntrodcutionWrapper>
       <CategoryFilter />
       <CTAButton onClick={handleOnClick}>
         동아리 추천 테스트 하러 가기
       </CTAButton>
-    </>
+    </IntrodcutionWrapper>
   );
 };
 
