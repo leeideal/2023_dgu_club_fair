@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Box } from '@mui/material';
-import Navigation from '../components/Nav/Nav';
 import styled, { keyframes } from 'styled-components';
 import down from '../assets/images/Main/down.png';
 import img_00 from '../assets/images/Main/01.png';
@@ -15,7 +13,9 @@ import dgulikelion from '../assets/images/About/RoundDGULogo.svg';
 import kim from '../assets/images/Main/c.svg';
 import go from '../assets/images/Main/e.svg';
 import test from '../assets/images/Main/test.svg';
-import { Link, useNavigate } from 'react-router-dom';
+import mainLogo from '../assets/images/Main/mainPage_logo.svg';
+import bottomLogo from '../assets/images/Main/logo.svg';
+import { useNavigate } from 'react-router-dom';
 
 const Header = styled.header`
   height: 75vh;
@@ -42,7 +42,11 @@ const titleAnimation = keyframes`
 `;
 
 const Title = styled.div`
+  margin-top: -22vh;
   text-align: center;
+  img{
+    scale : 0.9;
+  }
   h1 {
     font-size: 4rem;
     margin-bottom: 1.3rem;
@@ -56,12 +60,11 @@ const Title = styled.div`
       font-size: 2rem;
     }
   }
-
   h4 {
-    margin-bottom: 20px;
-    font-size: 2.5rem;
+    margin-bottom: 25px;
+    font-size: 1.25rem;
     @media (max-width: 500px) {
-      font-size: 1.6rem;
+      font-size: 1rem;
     }
   }
   animation: ${titleAnimation} 2s cubic-bezier(0.215, 0.61, 0.355, 1) both;
@@ -87,7 +90,7 @@ const DownBtn = styled.div`
     z-index: -1;
     height: 34px;
   }
-  margin-top: 20vh;
+  margin-top: 15vh;
   margin-bottom: -20vh;
   animation: ${downBtnFadeIn} 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1.4s both;
 `;
@@ -180,59 +183,58 @@ const Main = () => {
   const navigate = useNavigate();
   const likelionurl = 'https://likeliondgu.oopy.io/';
   const testurl = 'https://dgu-club-fair.netlify.app/';
-  const [stepElems, setStepElems] = useState([]);
-  const [graphicElems, setGraphicElems] = useState([]);
-  let currentItem = graphicElems[0]; // 현재 활성화
-  let ioIndex;
+  const [stepItem, setStepItem] = useState([]);
+  const [graphicItem, setGraphicItem] = useState([]);
+  let currentItem = graphicItem[0]; // 현재 활성화
+  let checkIdx;
 
   const io = new IntersectionObserver((entries, observer) => {
-    ioIndex = entries[0].target.dataset.index;
-    ioIndex = ioIndex * 1; // 문자열 to 숫자
+    checkIdx = entries[0].target.dataset.index;
+    checkIdx = checkIdx * 1; // 문자열 to 숫자
   });
 
-  for (let i = 0; i < stepElems.length; i++) {
-    stepElems[i].dataset.index = i;
-    graphicElems[i].dataset.index = i;
-    io.observe(stepElems[i]);
+  for (let i = 0; i < stepItem.length; i++) {
+    stepItem[i].dataset.index = i;
+    graphicItem[i].dataset.index = i;
+    io.observe(stepItem[i]);
   }
 
   useEffect(() => {
-    setStepElems(document.querySelectorAll('.step'));
-    setGraphicElems(document.querySelectorAll('.item'));
+    setStepItem(document.querySelectorAll('.step'));
+    setGraphicItem(document.querySelectorAll('.item'));
 
-    for (let i = 0; i < stepElems.length; i++) {
-      stepElems[i].dataset.index = i;
-      graphicElems[i].dataset.index = i;
+    for (let i = 0; i < stepItem.length; i++) {
+      stepItem[i].dataset.index = i;
+      graphicItem[i].dataset.index = i;
 
-      io.observe(stepElems[i]);
+      io.observe(stepItem[i]);
     }
   }, []);
 
   // 활성화
-  function activate() {
+  function action() {
     currentItem.style.opacity = 1;
   }
 
   // 비활성화
-  function inactivate() {
+  function stopAction() {
     currentItem.style.opacity = 0;
   }
 
   window.addEventListener('scroll', () => {
     let step;
-    let boundingRect;
-    for (let i = ioIndex - 1; i < ioIndex + 2; i++) {
-      step = stepElems[i];
+    let rectInfo;
+    for (let i = checkIdx - 1; i < checkIdx + 2; i++) {
+      step = stepItem[i];
       if (!step) continue;
-      boundingRect = step.getBoundingClientRect();
+      rectInfo = step.getBoundingClientRect();
       if (
-        boundingRect.top > window.innerHeight * 0.1 &&
-        boundingRect.top < window.innerHeight * 0.8
+        rectInfo.top > window.innerHeight * 0.1 &&
+        rectInfo.top < window.innerHeight * 0.8
       ) {
-        inactivate();
-        currentItem = graphicElems[step.dataset.index];
-        //console.log(currentItem.dataset.action)
-        activate();
+        stopAction();
+        currentItem = graphicItem[step.dataset.index];
+        action();
       }
     }
   });
@@ -241,7 +243,8 @@ const Main = () => {
     <>
       <Header>
         <Title>
-          <h4>동국대학교</h4>
+          <img src={mainLogo}/>
+          <h4>2023 동국대학교</h4>
           <h1>동아리 박람회</h1>
           <h6>톺아보기</h6>
         </Title>
