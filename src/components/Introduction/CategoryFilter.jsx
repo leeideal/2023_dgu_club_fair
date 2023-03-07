@@ -46,7 +46,6 @@ const CategoryFilter = ({ onCategoryChange }) => {
       // onCategoryChange(null);
     } else {
       setSelectedCategory(category);
-      onCategoryChange(category);
     }
   };
 
