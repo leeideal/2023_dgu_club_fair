@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import React from 'react';
-import NavHover from '../../assets/images/NavHover.png';
+import NavHover from '../../assets/images/Booth/NavHover.png';
 
 const NavButton = styled.button`
   width: 80px;
   height: 50px;
+  color: rgb(98, 66, 33);
   font-family: 'insungitCutelivelyjisu';
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 500;
   background-color: transparent;
   background-position: center;
@@ -20,8 +21,9 @@ const NavButton = styled.button`
 const HoverButton = styled.button`
   width: 80px;
   height: 50px;
+  color: rgb(98, 66, 33);
   font-family: 'insungitCutelivelyjisu';
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 500;
   background-color: transparent;
   background-image: url(${NavHover});

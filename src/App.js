@@ -1,7 +1,6 @@
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { theme } from './theme';
 import Router from './Router';
-
 import Loading from './components/Loading';
 import { useState, useEffect } from 'react';
 import { authService } from './fbase';
@@ -43,7 +42,7 @@ footer, header, hgroup, main, menu, nav, section {
   font-style: normal;
 }
 body {
-  line-height: 1;  
+  line-height: 1;
 }
 menu, ol, ul {
   list-style: none;

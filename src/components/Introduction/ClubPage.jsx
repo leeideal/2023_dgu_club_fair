@@ -87,12 +87,12 @@ const ClubPage = ({club}) => {
     return (
     <ClubPageWrapper>
     {/* 동아리 단체사진 */}
-    <ClubImage src={club.attachmentUrl} alt="Club Image" />
+    <ClubImage src={club.attachmentUrl} alt="Club Image" loading="lazy"/>
 
 
     <ClubHeader>
         <div style={{ display: "flex", alignItems: "center" }}>
-            <Logo src={club.attachmentUrl2}/>
+            <Logo src={club.attachmentUrl2} alt="Club Logo" loading="lazy"/>
             <div>
                 <ClubTitle>{club.title}</ClubTitle>
                 <ClubHastag>{club.hashtag}</ClubHastag>

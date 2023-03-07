@@ -13,7 +13,7 @@ import {
   ImageSection,
 } from '../../components/Booth/BoothStyled';
 import { TIME_DATA_FRI, TIME_DATA_THU } from '../Dummy/SampleData';
-import LIKELION_DGU_Logo from '../../assets/images/LIKELION_DGU_Logo.png';
+import LIKELION_DGU_Logo from '../../assets/images/Booth/LIKELION_DGU_Logo.png';
 
 const TimeTable = ({ dateCurrent }) => {
   // Date 관리------------------------------------------------------------
